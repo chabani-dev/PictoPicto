@@ -1,0 +1,454 @@
+body {
+  background-color: #348794 !important;
+  color: #f8f9fa !important;
+  text-shadow: 0 2px 5px rgba(34, 89, 97, 0.5);
+  font-size: 2rem !important;
+}
+
+/* Logo */
+#logo img {
+  height: 10rem;
+}
+.fontEchange {
+  font-size: 2rem !important;
+}
+h1 {
+  text-align: center;
+  color: rgba(176, 7, 7, 0.75);
+  /* font-size: 50px;
+  font-weight: 800; */
+  font-family: monospace;
+  letter-spacing: 7px;
+  cursor: pointer;
+}
+h1 span {
+  transition: 0.5s linear;
+}
+h1:hover span:nth-child(1) {
+  margin-right: 5px;
+}
+h1:hover span:nth-child(1):after {
+  content: " ";
+}
+h1:hover span:nth-child(2) {
+  margin-left: 30px;
+}
+h1:hover span {
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+}
+/* Commandes Latérales */
+.command {
+  background: rgba(146, 220, 224, 0.1);
+  box-shadow: inset 0 0 4px rgba(146, 220, 224, 0.75);
+}
+
+/* Boutons des Commandes Latérales */
+#play,
+#playWordByWord,
+#futur,
+#passe,
+#neg,
+#pos,
+/* #ques, */
+#mic,
+#trash,
+#aide {
+  border-radius: 50%;
+  width: 3rem;
+  color: #f8f9fa;
+  font-size: 1.1rem;
+}
+
+/* Lecture Phrase */
+#play,
+#play-modal {
+  background: #20c997;
+  box-shadow: inset -2px -2px 4px rgba(18, 114, 86, 0.6),
+    inset 2px 2px 4px #69e7c2;
+}
+#play:active {
+  box-shadow: inset -2px -2px 4px #69e7c2,
+    inset 2px 2px 4px rgba(18, 114, 86, 0.6);
+}
+
+/*lecture mot par mot*/
+#playWordByWord,
+#playWordByWord-modal {
+  background: #007bff;
+  box-shadow: inset -2px -2px 4px #0e3d91,
+    inset 2px 2px 4px rgba(0, 123, 255, 0.7);
+}
+#playWordByWord:active {
+  box-shadow: inset -2px -2px 4px rgba(0, 123, 255, 0.7),
+    inset 2px 2px 4px rgb(14, 61, 145);
+}
+
+/*futur*/
+#futur {
+  background: #38b000;
+  box-shadow: inset -2px -2px 4px #79c699, inset 2px 2px 4px #38b000;
+}
+#futur:active {
+  box-shadow: inset -2px -2px 4px rgba(0, 123, 255, 0.7),
+    inset 2px 2px 4px #0e3d91;
+}
+
+/*passé*/
+#passe {
+  background: #de16a2;
+  box-shadow: inset -2px -2px 4px rgb(209, 13, 173), inset 2px 2px 4px #b34392;
+}
+#passe:active {
+  box-shadow: inset -2px -2px 4px rgba(0, 123, 255, 0.7),
+    inset 2px 2px 4px #0e3d91;
+}
+
+/* Négatif */
+#neg {
+  background: rgb(160, 43, 55);
+  box-shadow: inset -2px -2px 4px #941a25, inset 2px 2px 4px #eb8e97;
+}
+#neg:active {
+  box-shadow: inset -2px -2px 4px #eb8e97, inset 2px 2px 4px #6e020d;
+}
+
+/* Positif */
+#pos {
+  background: #87db4b;
+  box-shadow: inset -2px -2px 4px #68a839, inset 2px 2px 4px #9dff57;
+}
+#pos:active {
+  box-shadow: inset -2px -2px 4px #406f1f, inset 2px 2px 4px #1d320e;
+}
+/* question */
+/* #ques {
+  background: #c7960e;
+  box-shadow: inset -2px -2px 4px #9f7b17, inset 2px 2px 4px #ffca3a;
+}
+#ques:active {
+  box-shadow: inset -2px -2px 4px #eb8e97, inset 2px 2px 4px #6e020d;
+} */
+/* #question {
+  background: rgba(146, 220, 224, 0.5);
+  box-shadow: inset 4px 4px 4px rgba(236, 254, 255, 0.5),
+    inset -4px -4px 4px rgba(3, 112, 118, 0.5);
+  border-radius: 20px 20px 20px 20px;
+  /*color: #F8F9FA !important;*/
+/* text-shadow: 0 2px 4px rgba(34, 89, 97, 0.5);
+  font-size: 1.3rem;
+} */
+
+/* Mic */
+#mic,
+#mic-modal {
+  background: rgba(23, 162, 184, 0.75);
+  box-shadow: inset -2px -2px 4px rgba(12, 84, 95, 0.6),
+    inset 2px 2px 4px #4ed4e9;
+}
+#mic:active {
+  box-shadow: inset -2px -2px 4px #4ed4e9,
+    inset 2px 2px 4px rgba(12, 84, 95, 0.6);
+}
+
+/* Poubelle */
+#trash,
+#trash-modal {
+  background: rgba(176, 7, 7, 0.75);
+  box-shadow: inset -2px -2px 4px #d01222, inset 2px 2px 4px rgb(188, 32, 48);
+}
+#trash:active {
+  box-shadow: inset -2px -2px 4px rgb(108, 65, 69), inset 2px 2px 4px #e10013;
+}
+
+/* Aide */
+#aide,
+#aide-modal {
+  background: rgba(87, 192, 183, 0.75);
+  box-shadow: inset -2px -2px 4px #2b5b65, inset 2px 2px 4px rgb(33, 117, 126);
+}
+#aide:active {
+  box-shadow: inset -2px -2px 4px rgb(18, 51, 108), inset 2px 2px 4px #0043e1;
+}
+
+/* Enregistrement Vocal */
+
+#star-modal {
+  background: #348794;
+  box-shadow: inset -2px -2px 4px rgba(12, 84, 95, 0.6),
+    inset 2px 2px 4px #4ed4e9;
+}
+#stopRecording-modal,
+#stopRecordingButton {
+  background: #bc6b17;
+  box-shadow: inset -2px -2px 4px rgb(95, 48, 12), inset 2px 2px 4px #e9b04e;
+}
+
+.collapse a {
+  color: rgba(34, 89, 97, 0.75) !important;
+  text-shadow: 0 2px 2px rgba(236, 254, 255, 0.6);
+  width: 20rem;
+  background: rgb(146, 220, 224);
+  box-shadow: inset 4px 4px 4px rgba(236, 254, 255, 0.5),
+    inset -4px -4px 4px rgba(3, 112, 118, 0.5);
+}
+
+.collapse a:last-child {
+  border-radius: 0 0 0 20px;
+}
+
+.collapse a:first-child {
+  border-radius: 20px 0 0 0;
+}
+
+/* Base */
+/* Carousel */
+.wrapperP,
+.wrapperC,
+.wrapperSCP {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.carouselC,
+.carouselP,
+.carouselSCP,
+.carouselCase {
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Flèches du Carousel */
+.prevC,
+.nextC,
+.prevP,
+.nextP,
+.nextSCP,
+.prevSCP,
+.nextCase {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: none;
+  padding: 8px;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+  color: #f8f9fa;
+}
+
+/* Position Boutons "Précédent" */
+.prevC,
+.prevP,
+.prevSCP {
+  top: 35%;
+  left: 0;
+}
+
+/* Position Boutons "Suivant" */
+.nextC,
+.nextP,
+.nextSCP,
+.nextCase {
+  top: 35%;
+  right: 0;
+}
+
+.contentC,
+.contentP,
+.contentSCP {
+  display: grid;
+  grid-gap: 20px;
+  grid-auto-flow: column;
+  /* margin: auto; */
+  box-sizing: border-box;
+}
+
+/* Champs Phrase */
+#sentenceField {
+  height: 5rem;
+  background: rgba(34, 89, 97, 0.33);
+  box-shadow: inset -1px -4px 10px rgba(82, 206, 224, 0.5),
+    inset 4px 4px 20px #225961;
+  border-radius: 20px 20px 20px 20px;
+  margin-left: 40px;
+  margin-top: 25px;
+}
+
+/* Champs Phrase pour l'Utilisateur Non Authentifié */
+#sentence .border-radius-all {
+  border-radius: 20px !important;
+}
+
+/* Bouton "Sauvegarder" du Champs Phrase */
+#sentence button {
+  height: 5rem;
+  background: rgba(34, 89, 97, 0.3);
+  box-shadow: inset 4px 4px 4px rgba(82, 206, 224, 0.5),
+    inset -4px -4px 4px rgba(34, 89, 97, 0.5);
+  border-radius: 0 20px 20px 0;
+  color: #f8f9fa !important;
+  text-shadow: 0 2px 4px rgba(34, 89, 97, 0.5);
+}
+
+/* Sous-Catégories */
+.sous-categorie img {
+  height: 6rem !important;
+  width: 6rem !important;
+  border: 4px solid maroon;
+  border-radius: 1rem;
+  display: inline-block;
+  box-shadow: 3px 3px 5px rgb(21 55 60 / 50%);
+}
+
+/* Pictogrammes */
+.picto img,
+.drag,
+.ui-draggable {
+  height: 6rem !important;
+  width: 6rem !important;
+  border-radius: 1rem;
+  display: inline-block;
+  box-shadow: 3px 3px 5px rgba(21, 55, 60, 0.5);
+}
+
+/* Zone de Drop des Pictogrammes */
+#drop div {
+  height: 6rem !important;
+  width: 6rem !important;
+  min-width: 6rem !important;
+  min-height: 6rem !important;
+  background: rgba(34, 89, 97, 0.33);
+  box-shadow: inset -4px -4px 10px #3d9fae,
+    inset 4px 4px 20px rgba(21, 55, 60, 0.75);
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+/* Désactivation du drag des Catégories */
+.wrapperC,
+.wrapperSCP,
+#static img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Position Pictogramme fixe */
+.pictoPosition {
+  position: static !important;
+}
+
+/* Position Pictogramme entrain d'être déplacé */
+.pictoAbsolute {
+  position: absolute !important;
+}
+
+/* Page Menu */
+/* Bouton du Menu */
+
+.pt-4 {
+  /* text-shadow: 0 2px 4px rgba(34, 89, 97, 0.5); */
+  text-shadow: 9px 8px 3px rgb(34 89 97 / 50%);
+  font-size: 2.8rem;
+  color: #87db4b;
+  font-weight: 800;
+  font-family: monospace;
+}
+.pt-4:hover {
+  color: #de16a2;
+  cursor: pointer;
+  text-shadow: 0 2px 4px rgba(34, 97, 46, 0.5);
+}
+#wrapperMenu a.btn {
+  background: rgba(146, 220, 224, 0.5);
+  /* box-shadow: inset 4px 4px 4px rgba(236, 254, 255, 0.3),
+    inset -4px -4px 4px rgba(3, 112, 118, 0.5); */
+  border: 0;
+  border-radius: 20px;
+  color: #f8f9fa !important;
+  text-shadow: 0 2px 4px rgba(34, 89, 97, 0.5);
+  font-size: 1.8rem;
+  width: 20rem !important;
+  /* box-shadow: 6px 6px 0px #aaa; */
+  box-shadow: 1px 7px 0px #807b6d;
+}
+#wrapperMenu a.btn:hover {
+  box-shadow: 12px 12px 0px #de16a2;
+  background-color: rgba(34, 89, 97, 0.5);
+  cursor: pointer;
+}
+/* Page Dialogue */
+/* Select Questions */
+#question {
+  background: rgba(146, 220, 224, 0.5);
+  box-shadow: inset 4px 4px 4px rgba(236, 254, 255, 0.5),
+    inset -4px -4px 4px rgba(3, 112, 118, 0.5);
+  border-radius: 20px 20px 20px 20px;
+  color: #000000;
+  text-shadow: 0 2px 4px rgba(34, 89, 97, 0.5);
+  font-size: 1.3rem;
+}
+
+/* Page Ecoute */
+/* Wrapper */
+#audioWrapper {
+  background-color: rgba(146, 220, 224, 0.75);
+  box-shadow: inset 4px 4px 4px rgba(187, 233, 236, 0.75),
+    inset -4px -4px 4px #44c3ca;
+  border-radius: 20px;
+}
+
+/* Section Audio */
+.listenAudio {
+  border-bottom: solid 3px rgba(52, 135, 148, 0.5);
+}
+
+.modal-content {
+  box-shadow: 0px 4px 10px rgba(21, 55, 60, 1);
+  text-shadow: none;
+}
+.modal button i {
+  font-size: 1.5rem;
+}
+#help-modal .modal-body {
+  font-size: 1rem;
+}
+
+/* icônes modal help */
+#trash-modal,
+#play-modal,
+#neg-modal,
+#pos-modal,
+#mic-modal,
+#stopRecording-modal,
+#star-modal,
+#playWordByWord-modal {
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  color: #f8f9fa;
+  font-size: 1.5rem;
+  margin: 0.2rem;
+}
+
+/*classe des mots lus mot par mot*/
+.brightWord {
+  color: yellow;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.btn-change {
+  height: 50px;
+  float: left;
+  box-shadow: 0px -50px 0 0 lightseagreen inset, 0px 50px 0 lightseagreen inset;
+}
+.btn-change:hover {
+  box-shadow: 0px 0px 0 0px lightseagreen inset,
+    0px 0px 0 0px lightseagreen inset;
+}

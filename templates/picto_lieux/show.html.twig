@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoLieux{% endblock %}
+
+{% block body %}
+    <h1>PictoLieux</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_lieux.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_lieux.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_lieux.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_lieux.updateAt ? picto_lieux.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_lieux_index') }}">Retour à la liste des PictoLieux</a>
+
+    <a href="{{ path('app_picto_lieux_new') }}">Create new  PictoLieux</a>
+
+    {# <a href="{{ path('app_picto_lieux_edit', {'id': picto_lieux.id}) }}">edit</a>
+
+    {{ include('picto_lieux/_delete_form.html.twig') }} #}
+{% endblock %}

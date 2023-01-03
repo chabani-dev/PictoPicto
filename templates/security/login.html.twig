@@ -1,0 +1,91 @@
+{% extends 'baseTherapist.html.twig' %}
+
+{% block title %}Connexion | PictoPicto
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/connexion.css') }}" type="text/css">
+{% endblock %}
+{% block body %}
+	<div class="main">
+		<div class="container a-container" id="a-container">
+			<form class="form" id="a-form">
+				<h2 class="switch__title title">Bienvenue sur
+					<span class="PBlue">
+						P</span>icto<span class="PRouge">P</span>icto!</h2>
+				<p class="switch__description description">Destinée à développer la communication à l'aide de pictogrammes,
+															          l'application est réservée aux professionnels de santé qui en font la demande.</p><br>
+				<p class="switch__description description">L'inscription vous permettra un suivi des progrès de votre patient
+															          ainsi que l'intégration de nouveaux pictogrammes choisis par vos soins.</p><br>
+				<p class="switch__description description">Vous n'êtes pas un professionnel de santé?
+															          Le mode invité vous permettra de découvrir notre application en toute liberté</p>
+				<a href="{{ path('guest') }}" class="switch__button button switch-btn a-button" type="button">
+					<p>Mode invité</p>
+				</a>
+			</form>
+			<div class="droit">
+				<p>© Tous droits réservés -
+					<span class="PBlue">
+						P</span>icto<span class="PRouge">P</span>icto® 2021</p>
+			</div>
+			<div class="footer underline ">
+				<a href="{{ path('mentions') }}">Mentions légales
+				</a>
+				<p class="space">
+					|
+				</p>
+				<a href="{{ path('partners') }}">
+					Partenaires
+				</a>
+				<p class="space">
+					|
+				</p>
+				<a href="{{ path('a_propos') }}">
+					A Propos
+				</a>
+			</div>
+		</div>
+
+		<div class="switch" id="connexion switch-cnt">
+			<div class="switch__circle"></div>
+			<div class="switch__circle switch__circle--t"></div>
+			<div class="switch__container" id="switch-c1">
+				<img src="{{ asset('img/LogoEcam.png') }}" alt="" width="140px">
+				<h2 class="form_title title">Connexion</h2>
+				<form method="post">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+					{% if app.user %}
+						<div class="mb-3">
+							Vous êtes connecté
+							{{ app.user.username }},
+							<a href="{{ path('app_logout') }}">Déconnexion</a>
+						</div>
+					{% endif %}
+
+					<div>
+						<input for="inputEmail" class="form__input " type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Email" required autofocus>
+					</div>
+
+					<div class="pss">
+						<input for="inputPassword" name="password" id="inputPassword" class="form__input " type="password" placeholder="Mot de Passe" required>
+					</div>
+					<div>
+						<a href="{{ path('app_forgot_password_request') }}" class="form__link">Mot de passe oublié ?</a>
+					</div>
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+					<div>
+						<button type="submit" id="logIn" class="switch__button button switch-btn">Se Connecter</button>
+					</div>
+				</form><br>
+				<p class="switch__description description">Pas encore de compte ?
+					<a href="{{ path('register') }}" class="form__link">S'inscrire</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+
+
+{% endblock %}
+

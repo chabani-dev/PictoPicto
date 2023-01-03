@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoFormes{% endblock %}
+
+{% block body %}
+    <h1>PictoFormes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_forme.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_forme.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_forme.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_forme.updateAt ? picto_forme.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_formes_index') }}">Retour à la liste des PictoFormes</a>
+
+     <a href="{{ path('app_picto_formes_new') }}">Create new PictoFormes</a>
+
+    {# <a href="{{ path('app_picto_formes_edit', {'id': picto_forme.id}) }}">edit</a>
+
+    {{ include('picto_formes/_delete_form.html.twig') }} #}
+{% endblock %}

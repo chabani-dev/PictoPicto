@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoComportements{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoComportements</h1>
+
+    {{ include('picto_comportements/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_comportements_index') }}">back to list</a>
+
+    {{ include('picto_comportements/_delete_form.html.twig') }}
+{% endblock %}

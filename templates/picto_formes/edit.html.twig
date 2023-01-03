@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoFormes{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoFormes</h1>
+
+    {{ include('picto_formes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_formes_index') }}">back to list</a>
+
+    {{ include('picto_formes/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoAdjectifs{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoAdjectifs</h1>
+
+    {{ include('picto_adjectifs/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_adjectifs_index') }}">back to list</a>
+
+    {{ include('picto_adjectifs/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoCouleurs{% endblock %}
+
+{% block body %}
+    <h1>PictoCouleurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_couleur.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_couleur.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_couleur.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_couleur.updateAt ? picto_couleur.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_couleurs_index') }}">Retour à la liste des PictoCouleurs</a>
+
+    <a href="{{ path('app_picto_couleurs_new') }}">Create new PictoColeurs</a>
+
+    {# {{ include('picto_couleurs/_delete_form.html.twig') }} #}
+{% endblock %}

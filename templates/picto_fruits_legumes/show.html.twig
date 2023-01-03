@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoFruitsLegumes{% endblock %}
+
+{% block body %}
+    <h1>PictoFruitsLegumes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_fruits_legume.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_fruits_legume.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_fruits_legume.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_fruits_legume.updateAt ? picto_fruits_legume.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_fruits_legumes_index') }}">Retour à la liste des PictoFruits et Legumes</a>
+
+    <a href="{{ path('app_picto_fruits_legumes_new') }}">Create new PictoFruitsLegumes</a>
+
+    {# <a href="{{ path('app_picto_fruits_legumes_edit', {'id': picto_fruits_legume.id}) }}">edit</a>
+
+    {{ include('picto_fruits_legumes/_delete_form.html.twig') }} #}
+{% endblock %}

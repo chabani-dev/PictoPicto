@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoCouleurs{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoCouleurs</h1>
+
+    {{ include('picto_couleurs/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_couleurs_index') }}">back to list</a>
+
+    {{ include('picto_couleurs/_delete_form.html.twig') }}
+{% endblock %}

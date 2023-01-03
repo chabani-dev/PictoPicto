@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoCorpsHumain{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoCorpsHumain</h1>
+
+    {{ include('picto_corps_humain/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_corps_humain_index') }}">back to list</a>
+
+    {{ include('picto_corps_humain/_delete_form.html.twig') }}
+{% endblock %}

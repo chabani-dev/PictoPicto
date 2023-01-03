@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoMeteo{% endblock %}
+
+{% block body %}
+    <h1>PictoMeteo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_meteo.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_meteo.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_meteo.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_meteo.updateAt ? picto_meteo.updateAt|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_meteo_index') }}">Retour à la liste des PictoMeteo</a>
+
+     <a href="{{ path('app_picto_meteo_new') }}">Create new PictoMeteo</a>
+
+    {# <a href="{{ path('app_picto_meteo_edit', {'id': picto_meteo.id}) }}">edit</a>
+
+    {{ include('picto_meteo/_delete_form.html.twig') }} #}
+{% endblock %}

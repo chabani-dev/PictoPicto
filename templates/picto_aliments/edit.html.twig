@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoAliments{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoAliments</h1>
+
+    {{ include('picto_aliments/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_aliments_index') }}">back to list</a>
+
+    {{ include('picto_aliments/_delete_form.html.twig') }}
+{% endblock %}

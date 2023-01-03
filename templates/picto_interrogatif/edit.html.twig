@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoInterrogatif{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoInterrogatif</h1>
+
+    {{ include('picto_interrogatif/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_interrogatif_index') }}">back to list</a>
+
+    {{ include('picto_interrogatif/_delete_form.html.twig') }}
+{% endblock %}

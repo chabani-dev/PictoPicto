@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoCouverts{% endblock %}
+
+{% block body %}
+    <h1>PictoCouverts</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_couvert.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_couvert.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_couvert.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_couvert.updateAt ? picto_couvert.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_couverts_index') }}">Retour à la liste des PictoCouverts</a>
+
+    {# <a href="{{ path('app_picto_couverts_edit', {'id': picto_couvert.id}) }}">edit</a> #}
+     <a href="{{ path('app_picto_couverts_new') }}">Create new PictoCouverts</a>
+
+    {# {{ include('picto_couverts/_delete_form.html.twig') }} #}
+{% endblock %}

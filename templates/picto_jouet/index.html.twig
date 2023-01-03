@@ -1,0 +1,56 @@
+{% extends 'baseTherapist.html.twig' %}
+
+{% block title %}Création d'un Pictogramme jouet| PictoPicto{% endblock %}
+
+{% block content %}
+
+    <span class="title">Pictojouet, Catégories </span>
+<div class="d-flex justify-content-between">
+                  
+         <!-- btn création catégories et picotgrammes -->
+        <div class="pictoactions">
+               <a href="{{ path('app_picto_jouet_new') }}" class="btn btn-dark btn-sm">Pictojouet</a>
+            
+        </div>
+<!-- btn pour retour à la page PictiPcto qui regroupe toutes les pictotgrammes -->
+        {# <div class="PictoPicto">
+         <a href="{{ path('app_picto_picto') }}" class="btn btn-dark btn-sm">retour liste PictoPicto</a>
+         </div>  #}
+         
+</div>
+<div class="container-fluid mt-3 p-4 background">
+        <div class="row">
+            <div class="col-12">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% for message in app.flashes('alert') %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+</div>
+</div>
+</div>
+
+<div id="accordion">
+        <div class="p-3 accordion-item d-flex">
+                <img class="pictoList" src="{{ asset('images/categories/'~picto_jouets[0].pictograms.filename) }}" alt=""> 
+                <span class="my-auto ms-2 ">{{ picto_jouets[0].pictograms.name }}</span>
+        </div>
+    
+<div class="picto">
+
+        {% for picto_jouet in picto_jouets %}
+                   <div class="ms-md-3">
+                     <img class="pictoList"src="{{ asset('images/pictograms/') }}{{  picto_jouet.filename }}" alt=""> 
+                    <figcaption class="picText">{{ picto_jouet.name }} </figcaption>
+                            
+                    </div>
+                   
+        {% endfor %}
+    </div>
+</div>
+     
+{% endblock %}
+     

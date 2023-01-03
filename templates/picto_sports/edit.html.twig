@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoSports{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoSports</h1>
+
+    {{ include('picto_sports/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_sports_index') }}">back to list</a>
+
+    {{ include('picto_sports/_delete_form.html.twig') }}
+{% endblock %}

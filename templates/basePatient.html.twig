@@ -1,0 +1,265 @@
+{% extends 'base.html.twig' %}
+    {# css carrousel, drag and drop, jquery#}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styleUser.css') }}" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.structure.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.theme.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/game.css') }}"/>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+{% endblock %}
+
+{% block body %}
+    <main class="container-fluid">
+        <div>
+            <div class="col-11">
+        {% block content %}
+            <div id="content" class=" py-4 fontEchange">
+                {% block dialogue %}
+                {% endblock %}
+                {% block echange %}
+                {% endblock %}
+                {% block game %}
+                {% endblock %}
+
+            </div>
+        {% endblock %}
+        {# end Content #}
+
+        {# Commandes #}
+        <div class="position-absolute top-0 end-0">
+        {% if block('commands') is defined %}
+            <div id="commands" class="px-0 command " style="width:6.3rem;">
+                <div class="d-flex flex-column align-items-center align-items-sm-start pt-3 text-white min-vh-100 max-vh-100">
+                    <a class="navbar-brand " href="{{ path('home') }}" title="PictoPicto">
+                        <img src="{{ asset('img/LogoEcam.png') }}" alt="PIctoPicto" width="100">
+                    </a>
+                    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center ">    
+            {# Menu #}
+            {% if block('menu') is defined %}
+                <div class="btn-group nav-link ">
+                                <button type="button" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-list-ul"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {% if app.request.get('_route') == 'add_sentence' %}
+                                        <li><a class="dropdown-item" href="{{ path('dialogue', {'id' : patient.id }) }}" >
+                                            <i class="fa-solid fa-circle-question"></i> Dialogue</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('game', {'id' : patient.id }) }}" >
+                                                <i class="fa-solid fa-gamepad"></i> Jeu de mémoire</a></li>
+                                    {% endif %}
+                                    {% if app.request.get('_route') == 'dialogue' %}
+                                        <li><a class="dropdown-item" href="{{ path('exchange', {'id' : patient.id }) }}" >
+                                            <i class="fa-solid fa-comments"></i> Echange</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('game', {'id' : patient.id }) }}" >
+                                                <i class="fa-solid fa-gamepad"></i> Jeu de mémoire</a></li>
+                                    {% endif %}
+                                    {% if app.request.get('_route') == 'game' %}
+                                        <li><a class="dropdown-item" href="{{ path('dialogue', {'id' : patient.id }) }}" >
+                                            <i class="fa-solid fa-circle-question"></i> Dialogue</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('exchange', {'id' : patient.id }) }}" >
+                                                <i class="fa-solid fa-comments"></i> Echange</a></li>
+                                    {% endif %}
+                                    {% if app.request.get('_route') == 'guest_exchange' %}
+                                        <li><a class="dropdown-item" href="{{ path('guest_dialogue') }}" >
+                                            <i class="fa-solid fa-circle-question"></i> Dialogue</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('guest_game') }}" >
+                                                <i class="fa-solid fa-gamepad"></i> Jeu de mémoire</a></li>
+
+                                    {% endif %}
+                                    {% if app.request.get('_route') == 'guest_dialogue' %}
+                                        <li><a class="dropdown-item" href="{{ path('guest_exchange') }}" >
+                                            <i class="fa-solid fa-comments"></i> Echange</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('guest_game') }}" >
+                                                <i class="fa-solid fa-gamepad"></i> Jeu de mémoire</a></li>
+                                    {% endif %}
+                                    {% if app.request.get('_route') == 'guest_game' %}
+                                        <li><a class="dropdown-item" href="{{ path('guest_dialogue') }}" >
+                                            <i class="fa-solid fa-circle-question"></i> Dialogue</a></li>
+                                            <li><a class="dropdown-item" href="{{ path('guest_exchange') }}" >
+                                                <i class="fa-solid fa-comments"></i> Echange</a></li>
+                                    {% endif %}
+                                        <li><hr class="dropdown-divider"></li>
+                                    {% if patient is defined %}
+                                        <li><a class="dropdown-item text-primary" href="{{ path('patient') }}">
+                                            <i class="fa-solid fa-house"></i> Déconnexion</a></li>
+                                    {% else %}
+                                        <li><a class="dropdown-item text-primary" href="{{ path('home') }}">
+                                            <i class="fa-solid fa-house"></i> Accueil</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+            {% endif %}
+            {# end Menu #}
+
+
+            {# Boutons #}
+            {% if block('buttons') is defined %}
+                <div id="commandButtons" class="d-flex flex-column">
+                    {# Bouton Lecture #}
+                    <li>
+                        <a class="nav-link  border-top" type="button" aria-current="page" title="Lire la phrase constituée">
+                            <button id="play" class="btn">
+                            <i class="fa-solid fa-play"></i>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link " type="button" title="Lire la phrase constituée mot par mot">
+                            <button id="playWordByWord" class="btn">
+                            <i class="fa-solid fa-forward-step"></i>
+                            </button>
+                        </a>
+                    </li>
+                    {# end Bouton Lecture #}
+                    {# Bouton temps les verbe #}
+                    <li>
+                        <a class="nav-link " type="button" title="Mettre la phrase au futur">
+                            <button id="futur" class="btn">
+                                <i class="fa-solid fa-forward"></i>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link " type="button" title="Mettre la phrase au passé">
+                            <button id="passe" class="btn">
+                            <i class="fa-solid fa-backward"></i>
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link  " type="button" title="Mettre la phrase au présent">
+                            <button id="pos" class="btn">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                        </a>
+                    </li>
+                    {#end Bouton temps les verbe #}
+                    {# Bouton Négatif #}
+                    <li>
+                        <a class="nav-link py-2 " type="button" title="Mettre la phrase a la forme négative">
+                            <button id="neg" class="btn">
+                            <i class="fas fa-thumbs-down"></i>
+                        </button>
+                        </a>
+                    </li>
+                    {# end Bouton Négatif #}
+                    {# Bouton Question #}
+                    {# <li>
+                        <a class="nav-link  " type="button" title="Mettre la phrase sous forme de question">
+                            <button id="ques" class="btn">
+                            <i class="fa-solid fa-question"></i>
+                        </button>
+                        </a>
+                    </li> #}
+                    {# end Bouton Question #}
+
+
+                    {# Bouton microphone #}
+                    {% if app.user %}
+                        <li>
+                            <a class="nav-link" type="button" title="Enregistrement Audio">
+                                <button type="button" id="mic" class="btn" data-bs-toggle="modal" data-bs-target="#mic-modalBackdrop">
+                                <i class="fas fa-microphone-alt"></i>
+                            </button>
+                            </a>
+                        </li>
+
+                        <div class="modal fade" id="mic-modalBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="mic-modalBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content text-dark">
+                                    <div class="modal-header justify-content-center">
+                                        <h5 class="modal-title" id="mic-modalBackdropLabel">Enregistrement Audio</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input class=" d-none" type="checkbox" id="live"/>
+                                        <canvas id="level" height="200" width="465"></canvas>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="stop" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="{{ path('api_audio', {id: patient.id }) }}" id="save" class="btn btn-success enabled" data-bs-dismiss="modal">Sauvegarder</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {# end Bouton microphone #}
+                    {# Bouton Poubelle #}
+                        <li>
+                            <a class="nav-link  " type="button" title="Supprimer les mots et les pictogrammes sélectionnés">
+                                <button id="trash" class="btn">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </a>
+                        </li>
+                    {# end Bouton Poubelle #}
+                    {# Bouton aide utilisateur #}
+                    <li>
+                        <a class="nav-link" type="button" title="Comment utiliser l'application ?">
+                            <button id="aide" class="btn" data-toggle="modal" data-target="#help-modal">
+                                <i class="fa-solid fa-info"></i>
+                            </button>
+                        </a>
+                    </li>                                            
+                    <div class="modal fade" id="help-modal" tabindex="-1" aria-labelledby="help-modal" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content text-dark">
+                                <div class="modal-header justify-content-center">
+                                    <h5 class="modal-title " id="help-modal">Comment utiliser l'application?</h5>
+                                </div>
+                                <div class="modal-body px-5">
+                                    <h6 class="text-center">Échange</h6>
+                                    <p> La première ligne de pictogrammes correspond aux différentes catégories: <br>appuyez dessus pour voir apparaître en dessous les pictogrammes qui lui sont associés. <BR> <BR>
+                                        Déplacez le pictogramme de votre choix (hors catégories) à l'aide de la souris ou du doigt pour composer la phrase.
+                                        <br> Les mots apparaissent! <br> <br>
+                                        Plusieurs choix s'offrent à vous: <br> <br>
+                                    <div class="ms-5">
+                                        <div id="play-modal" class="btn" ><i class="fas fa-play"></i></div> Lire la phrase constituée <br>
+                                        <div id="playWordByWord-modal" class="btn" ><i class="fas fa-step-backward"></i></div> Lire la phrase constituée mot par mot <br>
+                                        <div id="neg-modal" class="btn" ><i class="fas fa-thumbs-down"></i></div> Rendre la phrase négative <br>
+                                        <div id="pos-modal" class="btn"><i class="fas fa-thumbs-up"></i></div>Rendre la phrase positive<br>
+                                        <div id="star-modal" class="btn"><i class="fas fa-star" ></i></div> Stocker la phrase dans le dossier du patient<br>
+                                        <div id="trash-modal" class="btn my-1"><i class="fas fa-trash-alt"></i></div> Supprimer les mots et les pictogrammes sélectionnés
+                                    </div>
+
+                                    </p>
+                                    <h6 class="text-center">Dialogue</h6>
+                                    <p>La partie Dialogue vous permet de choisir une question. Les pictogrammes directement associés apparaissent pour permettre au patient de formuler sa propre réponse.</p>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Compris!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# end bouton aide #}
+                </div>
+                </div>
+            {% endif %}
+            {# end Boutons #}
+
+        {% endif %}
+        {# end Commandes #}
+        </div>
+
+
+    </main>
+{% endblock  %}
+{# end Body #}
+
+{# js carousel, drag and drop, jquery#}
+{% block script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('js/jquery.ui.touch-punch.js') }}"></script>
+<script src="{{ asset('js/drag-and-drop.js') }}"></script>
+<script src="{{ asset('js/ajaxPictogram.js') }}"></script>
+<script src="{{ asset('js/question.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/carousel.js') }}"></script>
+<script src="{{ asset('js/conjugating.js') }}"></script>
+<script src="{{ asset('js/negatif.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoScolarite{% endblock %}
+
+{% block body %}
+    <h1>PictoScolarite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_scolarite.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_scolarite.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_scolarite.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_scolarite.updateAt ? picto_scolarite.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_scolarite_index') }}">Retour à la liste des PictoScolarite</a>
+    <a href="{{ path('app_picto_scolarite_new') }}">Create new PictoScolarite</a>
+
+    {# <a href="{{ path('app_picto_scolarite_edit', {'id': picto_scolarite.id}) }}">edit</a>
+
+    {{ include('picto_scolarite/_delete_form.html.twig') }} #}
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'baseTherapist.html.twig' %}
+
+{% block title %}A Propos | PictoPicto{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/test.css') }}" type="text/css">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid" id="wrapper">
+        <div class="text-center py-4">
+            <a id="logo" href="{{ path('home') }}"><img src="{{ asset('img/LogoEcam.png') }}" alt="PictoPicto">
+            </a>
+        </div>
+        <div class="container">
+            <table class="table table-hover px-auto text-light text-center">
+                <thead>
+                    <tr>
+                    <th scope="col" colspan="2"><h2 class="display-6 my-2">Equipe de Développement</h2></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Moncef BENKHERRAT (ECAM-EPMI)</th>
+                        <td>Auteur et Chef de Projet</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Mustapha YOUNSI</th>
+                        <td>Responsable Développement Informatique</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Mohammad Saleh Trissi</th>
+                        <td >Développement Informatique</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Paloma VACHERON</th>
+                        <td >Développement Informatique</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Elodie AGOUTIN</th>
+                        <td >Développement Informatique</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">François THIALON</th>
+                        <td >Développement Informatique</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cyril ACACIO</th>
+                        <td >Développement Informatique</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tristan RUDRAUF</th>
+                        <td >Développement Informatique</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pascal LEGENDRE (Bouygues Energies et Services)</th>
+                        <td >Parrain du Projet</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Didier BEAUFOL (Association HORS-CADRE)</th>
+                        <td >Educateur Spécialisé</td>
+                    </tr>
+                </tbody>
+            </table>
+                <div class="mt-5 text-center ">
+                    <a class="Retour" href="{{ path('home') }}">Retour à l'accueil</a>
+                </div>
+        </div>
+    </div>
+{% endblock %}
+

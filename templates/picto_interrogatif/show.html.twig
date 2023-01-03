@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoInterrogatif{% endblock %}
+
+{% block body %}
+    <h1>PictoInterrogatif</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_interrogatif.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_interrogatif.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_interrogatif.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_interrogatif.updateAt ? picto_interrogatif.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_interrogatif_index') }}">Retour à la liste des PictoInterrogatif</a>
+
+     <a href="{{ path('app_picto_interrogatif_new') }}">Create new PictoInterrogatif </a>
+
+    {# <a href="{{ path('app_picto_interrogatif_edit', {'id': picto_interrogatif.id}) }}">edit</a>
+
+    {{ include('picto_interrogatif/_delete_form.html.twig') }} #}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoAdjectifs{% endblock %}
+
+{% block body %}
+    <h1>PictoAdjectifs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_adjectif.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_adjectif.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_adjectif.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_adjectif.updateAt ? picto_adjectif.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_adjectifs_index') }}">Retour à la liste des PictoAdjectifs</a>
+
+    <a href="{{ path('app_picto_adjectifs_new') }}">Create new PictoAdjectifs</a>
+    
+    {# {{ include('picto_adjectifs/_delete_form.html.twig') }} #}
+{% endblock %}

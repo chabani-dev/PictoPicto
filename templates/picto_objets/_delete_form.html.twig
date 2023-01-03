@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_picto_objets_delete', {'id': picto_objet.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ picto_objet.id) }}">
+    <button class="btn">Delete</button>
+</form>

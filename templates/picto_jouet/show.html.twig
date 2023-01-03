@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoJouet{% endblock %}
+
+{% block body %}
+    <h1>PictoJouet</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_jouet.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_jouet.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_jouet.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_jouet.updateAt ? picto_jouet.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_jouet_index') }}">Retour à la liste des PictoJouet</a>
+
+    <a href="{{ path('app_picto_jouet_new') }}">Create new PictoJouet</a>
+
+    {# <a href="{{ path('app_picto_jouet_edit', {'id': picto_jouet.id}) }}">edit</a>
+
+    {{ include('picto_jouet/_delete_form.html.twig') }} #}
+{% endblock %}

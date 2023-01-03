@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoAnimaux{% endblock %}
+
+{% block body %}
+    <h1>PictoAnimaux</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_animaux.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_animaux.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_animaux.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_animaux.updateAt ? picto_animaux.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_animaux_index') }}">Retour à la liste des PictoAnimaux</a>
+
+    <a href="{{ path('app_picto_animaux_new') }}">Create new PictoAnimaux</a>
+
+    {# {{ include('picto_animaux/_delete_form.html.twig') }} #}
+{% endblock %}

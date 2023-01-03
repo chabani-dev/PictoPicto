@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoFruitsLegumes{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoFruitsLegumes</h1>
+
+    {{ include('picto_fruits_legumes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_fruits_legumes_index') }}">back to list</a>
+
+    {{ include('picto_fruits_legumes/_delete_form.html.twig') }}
+{% endblock %}

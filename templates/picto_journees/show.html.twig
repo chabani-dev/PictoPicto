@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoJournees{% endblock %}
+
+{% block body %}
+    <h1>PictoJournees</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_journee.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_journee.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_journee.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_journee.updateAt ? picto_journee.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_journees_index') }}">Retour à la liste des PictoJournees</a>
+
+    <a href="{{ path('app_picto_journees_new') }}">Create new PictoJournees</a>
+
+    {# <a href="{{ path('app_picto_journees_edit', {'id': picto_journee.id}) }}">edit</a>
+
+    {{ include('picto_journees/_delete_form.html.twig') }} #}
+{% endblock %}

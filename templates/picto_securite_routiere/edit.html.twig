@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoSecuriteRoutiere{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoSecuriteRoutiere</h1>
+
+    {{ include('picto_securite_routiere/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_securite_routiere_index') }}">back to list</a>
+
+    {{ include('picto_securite_routiere/_delete_form.html.twig') }}
+{% endblock %}

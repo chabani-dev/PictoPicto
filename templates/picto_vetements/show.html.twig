@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoVetements{% endblock %}
+
+{% block body %}
+    <h1>PictoVetements</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_vetement.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_vetement.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_vetement.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_vetement.updateAt ? picto_vetement.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ picto_vetement.genre }}</td>
+            </tr>
+            <tr>
+                <th>Pluriel</th>
+                <td>{{ picto_vetement.pluriel }}</td>
+            </tr>
+            <tr>
+                <th>Prem_pers_sing</th>
+                <td>{{ picto_vetement.premPersSing }}</td>
+            </tr>
+            <tr>
+                <th>Deux_pers_sing</th>
+                <td>{{ picto_vetement.deuxPersSing }}</td>
+            </tr>
+            <tr>
+                <th>Trois_pers_sing</th>
+                <td>{{ picto_vetement.troisPersSing }}</td>
+            </tr>
+            <tr>
+                <th>Prem_pers_plur</th>
+                <td>{{ picto_vetement.premPersPlur }}</td>
+            </tr>
+            <tr>
+                <th>Deux_pers_plur</th>
+                <td>{{ picto_vetement.deuxPersPlur }}</td>
+            </tr>
+            <tr>
+                <th>Trois_pers_plur</th>
+                <td>{{ picto_vetement.troisPersPlur }}</td>
+            </tr>
+            <tr>
+                <th>Masculin_sing</th>
+                <td>{{ picto_vetement.masculinSing }}</td>
+            </tr>
+            <tr>
+                <th>Masculin_plur</th>
+                <td>{{ picto_vetement.masculinPlur }}</td>
+            </tr>
+            <tr>
+                <th>Feminin_sing</th>
+                <td>{{ picto_vetement.femininSing }}</td>
+            </tr>
+            <tr>
+                <th>Feminin_plur</th>
+                <td>{{ picto_vetement.femininPlur }}</td>
+            </tr>
+            <tr>
+                <th>Prem_pers_sing_futur</th>
+                <td>{{ picto_vetement.premPersSingFutur }}</td>
+            </tr>
+            <tr>
+                <th>Deux_pers_sing_futur</th>
+                <td>{{ picto_vetement.deuxPersSingFutur }}</td>
+            </tr>
+            <tr>
+                <th>Trois_pers_sing_futur</th>
+                <td>{{ picto_vetement.troisPersSingFutur }}</td>
+            </tr>
+            <tr>
+                <th>Prem_pers_plur_futur</th>
+                <td>{{ picto_vetement.premPersPlurFutur }}</td>
+            </tr>
+            <tr>
+                <th>Deux_pers_plur_futur</th>
+                <td>{{ picto_vetement.deuxPersPlurFutur }}</td>
+            </tr>
+            <tr>
+                <th>Trois_pers_plur_futur</th>
+                <td>{{ picto_vetement.troisPersPlurFutur }}</td>
+            </tr>
+            <tr>
+                <th>Prem_pers_sing_passe</th>
+                <td>{{ picto_vetement.premPersSingPasse }}</td>
+            </tr>
+            <tr>
+                <th>Deux_pers_sing_passe</th>
+                <td>{{ picto_vetement.deuxPersSingPasse }}</td>
+            </tr>
+            <tr>
+                <th>Trois_pers_sing_passe</th>
+                <td>{{ picto_vetement.troisPersSingPasse }}</td>
+            </tr>
+            <tr>
+                <th>Prem_pers_plur_passe</th>
+                <td>{{ picto_vetement.premPersPlurPasse }}</td>
+            </tr>
+            <tr>
+                <th>Deux_pers_plur_passe</th>
+                <td>{{ picto_vetement.deuxPersPlurPasse }}</td>
+            </tr>
+            <tr>
+                <th>Trois_pers_plur_passe</th>
+                <td>{{ picto_vetement.troisPersPlurPasse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_vetements_index') }}">Retour à la liste des PictoVetements</a>
+
+     <a href="{{ path('app_picto_vetements_new') }}">Create new PictoVetements</a>
+
+    {# {{ include('picto_vetements/_delete_form.html.twig') }} #}
+{% endblock %}

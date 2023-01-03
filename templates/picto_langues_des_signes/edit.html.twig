@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoLanguesDesSignes{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoLanguesDesSignes</h1>
+
+    {{ include('picto_langues_des_signes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_langues_des_signes_index') }}">back to list</a>
+
+    {{ include('picto_langues_des_signes/_delete_form.html.twig') }}
+{% endblock %}

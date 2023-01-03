@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoObjets{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoObjets</h1>
+
+    {{ include('picto_objets/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_objets_index') }}">back to list</a>
+
+    {{ include('picto_objets/_delete_form.html.twig') }}
+{% endblock %}

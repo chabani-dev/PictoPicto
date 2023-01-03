@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoChiffres{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoChiffres</h1>
+
+    {{ include('picto_chiffres/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_chiffres_index') }}">back to list</a>
+
+    {{ include('picto_chiffres/_delete_form.html.twig') }}
+{% endblock %}

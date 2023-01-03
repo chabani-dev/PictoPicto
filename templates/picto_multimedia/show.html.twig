@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PictoMultimedia{% endblock %}
+
+{% block body %}
+    <h1>PictoMultimedia</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ picto_multimedia.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ picto_multimedia.name }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td>{{ picto_multimedia.filename }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ picto_multimedia.updateAt ? picto_multimedia.updateAt|date('Y-m-d ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_picto_multimedia_index') }}">Retour à la liste des PictoMultimedia</a>
+
+     <a href="{{ path('app_picto_multimedia_new') }}">Create new PictoMultimedia</a>
+
+    {# <a href="{{ path('app_picto_multimedia_edit', {'id': picto_multimedia.id}) }}">edit</a>
+
+    {{ include('picto_multimedia/_delete_form.html.twig') }} #}
+{% endblock %}

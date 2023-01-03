@@ -1,0 +1,86 @@
+{% extends 'basePatient.html.twig' %}
+
+{% block title %}Dialogue | PictoPicto{% endblock %}
+
+{% block dialogue %}
+    {# Question #}
+    <div>
+            {# <select name="question" id="question" class="form-select form-select-lg align-self-end align-middle text-center py-4" aria-label=".form-select-lg default">
+            <option  value="">Choisir une question ...</option> #}
+            <select name="question" id="question" class="form-select form-select-lg align-self-end align-middle text-center py-4" aria-label=".form-select-lg example">
+                 <option selected>Choisir une question ...</option>
+            {% for question in questions %}
+                <option class="audioQ" title="{{ question.text }}">{{ question.text }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {# end Question #}
+    {# Carousel #}
+    <div class="picto-wrapper px-5 py-3 wrapperP" id="picto-carroussel">
+        <div class="carouselP align-middle" id="listPicto">
+            <div class="contentP my-1">
+                {% for picto in pictos %}
+                    {% if picto.category == null %}
+                        <div id="{{ picto.id }}" class="picto mx-4" title="{{ picto.subcategoryid.categoryid.name }}" >
+                            <img src="{{ asset('images/pictograms/') }}{{ picto.filename }}" alt="{{ picto.name }}" title="{{ picto.name }}" class="imgP">
+                        </div> 
+                    {% else %}
+                        <div id="{{ picto.id }}" class="picto mx-4" title="{{ picto.category.name }}" >
+                            <img src="{{ asset('images/pictograms/') }}{{ picto.filename }}" alt="{{ picto.name }}" title="{{ picto.name }}" class="imgP">
+                        </div>
+                    {% endif %} 
+                {% endfor %}
+            </div>
+        </div>
+        <button class="prevP bg-transparent">
+            <i class="bi bi-caret-left-fill"></i>
+        </button>
+        <button class="nextP bg-transparent">
+            <i class="bi bi-caret-right-fill"></i>
+        </button>
+    </div>
+    {# end Carousel #}
+    {# Drop #}
+    <hr class="my-3">
+    <div id="drop" class="d-flex justify-content-evenly mb-3">
+          {% for i in 1..10 %}
+            <div id="mot{{i}}" class="drop"></div>
+        {% endfor %}
+    </div>
+    {# end Drop #}
+    {# Phrase #}
+        {% block phrase %}
+            <div id="sentence" class="d-flex align-items-center">
+                <div id="sentenceField" class="flex-grow-1 text-center py-1  border-radius-all ">
+                    <span id="sentenceText"></span>
+                </div>
+            </div>
+        {% endblock %}
+    {# end Phrase #}
+{% endblock %}
+{% block commands %}
+    {% block menu %}
+    {% endblock %}
+    {% block buttons %}
+    {% endblock %}
+{% endblock%}
+
+{% block script %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.ui.touch-punch.js') }}"></script>
+    <script src="{{ asset('js/drag-and-drop.js') }}"></script>
+    <script src="{{ asset('js/ajaxPictogram.js') }}"></script>
+    <script src="{{ asset('js/question.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/carousel.js') }}"></script>
+    <script src="{{ asset('js/conjugating.js') }}"></script>
+    <script src="{{ asset('js/negatif.js') }}"></script>
+    <script src="{{ asset('js/futur.js') }}"></script>
+    <script src="{{ asset('js/passe.js') }}"></script>
+    <script src="{{ asset('js/ajouter_supprimer_case.js') }}"></script>
+    <script src="{{ asset('js/checkWidth.js') }}"></script>
+{% endblock %}

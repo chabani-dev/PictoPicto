@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PictoJournees{% endblock %}
+
+{% block body %}
+    <h1>Edit PictoJournees</h1>
+
+    {{ include('picto_journees/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_picto_journees_index') }}">back to list</a>
+
+    {{ include('picto_journees/_delete_form.html.twig') }}
+{% endblock %}
