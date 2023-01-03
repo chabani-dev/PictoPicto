@@ -30,39 +30,7 @@ class PictoVetementsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            // ->add('name')
-            // ->add('filename')
-            // ->add('update_at')
-            // ->add('genre')
-            // ->add('pluriel')
-            // ->add('prem_pers_sing')
-            // ->add('deux_pers_sing')
-            // ->add('trois_pers_sing')
-            // ->add('prem_pers_plur')
-            // ->add('deux_pers_plur')
-            // ->add('trois_pers_plur')
-            // ->add('masculin_sing')
-            // ->add('masculin_plur')
-            // ->add('feminin_sing')
-            // ->add('feminin_plur')
-            // ->add('prem_pers_sing_futur')
-            // ->add('deux_pers_sing_futur')
-            // ->add('trois_pers_sing_futur')
-            // ->add('prem_pers_plur_futur')
-            // ->add('deux_pers_plur_futur')
-            // ->add('trois_pers_plur_futur')
-            // ->add('prem_pers_sing_passe')
-            // ->add('deux_pers_sing_passe')
-            // ->add('trois_pers_sing_passe')
-            // ->add('prem_pers_plur_passe')
-            // ->add('deux_pers_plur_passe')
-            // ->add('trois_pers_plur_passe')
-            // ->add('pictograms')
-            // ->add('therapist')
-            // ->add('subcategory_id')
-            // ->add('sentences')
-
-              ->add('name', TextType::class, [
+            ->add('name', TextType::class, [
                 'label' => 'Nom du pictogramme*:',
                 'required' => true,
                 'attr' => [
@@ -103,27 +71,6 @@ class PictoVetementsType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-
-
-            //   ->add('pictograms', EntityType::class, [
-            //     'label' => 'Catégorie du nouveau pictogramme :',
-            //     'required' => false,
-            //     'class' => Category::class,
-            //     'choice_label' => 'name',
-            //     'attr' => [
-            //         'class' => 'form-select'
-            //     ],
-            // ])
-
-            // ->add('subcategory_id', EntityType::class, [
-            //     'label' => 'Sous-Catégorie du nouveau pictogramme :',
-            //     'required' => false,
-            //     'class' => SubCategory::class,
-            //     'choice_label' => 'name',
-            //     'attr' => [
-            //         'class' => 'form-select'
-            //     ],
-            // ])
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

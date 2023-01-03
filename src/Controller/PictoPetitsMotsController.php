@@ -66,7 +66,7 @@ class PictoPetitsMotsController extends AbstractController
                 $this->em->persist($pictogram);
                 $this->em->flush();
                 $this->addFlash('success', 'Pictogramme créé avec succès');
-                return $this->redirectToRoute('app_picto_petits_mots_index');
+                return $this->redirectToRoute('app_picto_picto');
             }
         }
           return $this->render('picto_petits_mots/new.html.twig', [

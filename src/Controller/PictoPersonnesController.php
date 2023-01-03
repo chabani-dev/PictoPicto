@@ -66,7 +66,7 @@ class PictoPersonnesController extends AbstractController
                 $this->em->persist($pictogram);
                 $this->em->flush();
                 $this->addFlash('success', 'Pictogramme créé avec succès');
-                return $this->redirectToRoute('app_picto_personnes_index');
+                return $this->redirectToRoute('app_picto_picto');
             }
         }
           return $this->render('picto_personnes/new.html.twig', [

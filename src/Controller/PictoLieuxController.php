@@ -64,7 +64,7 @@ class PictoLieuxController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $category = $form->get('pictograms')->getData();
-            $subcategory = $form->get('pictolieuxes')->getData();
+            $subcategory = $form->get('subcategory_id')->getData();
             if ( $category  && $subcategory) {
                 $this->addFlash('echec', 'Ne peut avoir qu\'une catégorie ou une sous-catégorie');
                 return $this->redirectToRoute('app_picto_lieux_new');
@@ -76,7 +76,7 @@ class PictoLieuxController extends AbstractController
                 $this->em->persist($pictogram);
                 $this->em->flush();
                 $this->addFlash('success', 'Pictogramme créé avec succès');
-                return $this->redirectToRoute('app_picto_lieux_index');
+                return $this->redirectToRoute('app_picto_picto');
             }
         }
           return $this->render('picto_lieux/new.html.twig', [

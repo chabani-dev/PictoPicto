@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\PictoActions;
 use App\Entity\Category;
-use App\Entity\SubCategory;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -71,15 +70,15 @@ class PictoActionsType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-            ->add('subcategory_id', EntityType::class, [
-                'label' => 'Sous-Catégorie du nouveau pictogramme :',
-                'required' => false,
-                'class' => SubCategory::class,
-                'choice_label' => 'name',
-                'attr' => [
-                    'class' => 'form-select'
-                ],
-            ])
+            // ->add('subcategory_id', EntityType::class, [
+            //     'label' => 'Sous-Catégorie du nouveau pictogramme :',
+            //     'required' => false,
+            //     'class' => SubCategory::class,
+            //     'choice_label' => 'name',
+            //     'attr' => [
+            //         'class' => 'form-select'
+            //     ],
+            // ])
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

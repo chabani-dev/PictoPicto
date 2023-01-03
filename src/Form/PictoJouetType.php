@@ -71,15 +71,7 @@ class PictoJouetType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-            ->add('subcategory_id', EntityType::class, [
-                'label' => 'pictogramme jouet :',
-                'required' => false,
-                'class' => SubCategory::class,
-                'choice_label' => 'name',
-                'attr' => [
-                    'class' => 'form-select'
-                ],
-            ])
+          
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

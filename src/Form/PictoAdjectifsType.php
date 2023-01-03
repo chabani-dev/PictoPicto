@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\PictoAdjectifs;
 use App\Entity\Category;
-use App\Entity\SubCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use App\Repository\CategoryRepository;
@@ -72,16 +71,7 @@ class PictoAdjectifsType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-            ->add('subcategory_id', EntityType::class, [
-                'label' => 'Sous-Catégorie du nouveau pictogramme :',
-                'required' => false,
-                'class' => SubCategory::class,
-                'choice_label' => 'name',
-                'attr' => [
-                    'class' => 'form-select'
-                ],
-            ])
-            ->add('genre', TextType::class, [
+             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,
                 'attr' => [

@@ -211,8 +211,6 @@ class PictoAdjectifs
      */
     private $therapist;
 
-
-
     /**
      * @ORM\ManyToMany(targetEntity=Sentence::class, inversedBy="pictoAdjectifs")
      */

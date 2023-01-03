@@ -222,8 +222,8 @@ class PictoCouleurs
 
     public function __construct()
     {
-       
-        $this->categories = new ArrayCollection();
+      
+        // $this->categories = new ArrayCollection();
         $this->sentences = new ArrayCollection();
     }
 
@@ -617,18 +617,7 @@ class PictoCouleurs
         return $this;
     }
 
-    public function getSubcategoryId(): ?SubCategory
-    {
-        return $this->subcategory_id;
-    }
-
-    public function setSubcategoryId(?SubCategory $subcategory_id): self
-    {
-        $this->subcategory_id = $subcategory_id;
-
-        return $this;
-    }
-
+    
     /**
      * @return Collection<int, Sentence>
      */

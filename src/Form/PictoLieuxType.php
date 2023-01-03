@@ -71,7 +71,7 @@ class PictoLieuxType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-            ->add('pictolieuxes', EntityType::class, [
+            ->add('subcategory_id', EntityType::class, [
                 'label' => 'Sous-Catégorie du nouveau pictogramme :',
                 'required' => false,
                 'class' => SubCategory::class,

@@ -63,16 +63,16 @@
                         {% if subcat.categoryid == category %}
                          <div class="accordion-item mb-3">
                         <h2 class="accordion-header" id="heading{{subcat.id}}">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{subcat.id}}" aria-expanded="false" aria-controls="collapse{{subcat.id}}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=".collapse{{subcat.id}}" aria-expanded="false" aria-controls="collapse{{subcat.id}}">
                         <img class="pictoList" src="{{ asset('images/sous-categories/'~subcat.filename) }}" alt="">
                         <span class="my-auto ms-2">{{ subcat.name }}</span>
                         </button>
                         </h2>
-                        <div class="collapse{{subcat.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{subcat.id}}" data-bs-parent="#accordionExample">
+                        <div class=".collapse{{subcat.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{subcat.id}}" data-bs-parent="#accordionExample">
                         <div class="d-flex flex-wrap">
                          {% for pic in pict %} 
-                        {# {% if pic.subcategoryid == subcat %} #}
-                      {% if pic is defined and pic.attribute('subcategoryid') is defined and pic.subcategoryid == subcat %}
+                        {# {% if pic.subcategoryid == subcat %}  #}
+                       {% if pic is defined and pic.attribute('subcategoryid') is defined and pic.subcategoryid == subcat %} 
 
          {# le code à exécuter si l'objet existe, si la clé existe et si les deux identifiants sont égaux #}
                         <div class="accordion-body">
@@ -113,10 +113,10 @@
                         </div>
                          {% endif %}  
                          {% endfor %} 
-                         {# </div>
+                          </div>
 
     </div>
-    </div> #}
+    </div> 
 </div>
 
 {% endblock %}

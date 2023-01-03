@@ -229,7 +229,7 @@ class PictoLieux
     public function __construct()
     {
        
-        $this->categories = new ArrayCollection();
+        // $this->categories = new ArrayCollection();
         $this->sentences = new ArrayCollection();
     }
     

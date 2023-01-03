@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\PictoActions;
 use App\Entity\Therapist;
 use App\Form\PictoActionsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoActionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,13 +40,13 @@ class PictoActionsController extends AbstractController
     /**
      * @Route("/", name="app_picto_actions_index", methods={"GET"})
      */
-    public function index(PictoActionsRepository $pictoActionsRepository): Response
+    public function index(PictoActionsRepository $pictoActionsRepository ,CategoryRepository $category): Response
 
     {
         // $category=$this->repository->find($id);
         return $this->render('picto_actions/index.html.twig', [
             'picto_actions' => $pictoActionsRepository->findAll(),
-            // 'category' => $category
+            'category' => $category
              
         ]);
     }
@@ -65,23 +66,22 @@ class PictoActionsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $category = $form->get('pictograms')->getData();
-            $subcategory = $form->get('subcategory_id')->getData();
+            // $subcategory = $form->get('subcategory_id')->getData();
          
 
-            if ( $category  && $subcategory) {
-                $this->addFlash('echec', 'Ne peut avoir qu\'une catégorie ou une sous-catégorie');
-                return $this->redirectToRoute('app_picto_actions_new');
-            } else if (!$category && !$subcategory) {
-                $this->addFlash('echec', 'Doit posséder une catégorie ou une sous-catégorie');
+            // if ( $category  && $subcategory) {
+            //     $this->addFlash('echec', 'Ne peut avoir qu\'une catégorie ou une sous-catégorie');
+            //     return $this->redirectToRoute('app_picto_actions_new');
+            } if (!$category ) {
+                $this->addFlash('echec', 'Doit posséder une catégorie ');
                 return $this->redirectToRoute('app_picto_actions_new');
             } else {
                 $pictogram = $form->getData();
                 $this->em->persist($pictogram);
                 $this->em->flush();
                 $this->addFlash('success', 'Pictogramme créé avec succès');
-                return $this->redirectToRoute('app_picto_actions_index');
+                return $this->redirectToRoute('app_picto_picto');
             }
-        }
         
         return $this->render('picto_actions/new.html.twig', [
             'pictograms' => $pictogram,
