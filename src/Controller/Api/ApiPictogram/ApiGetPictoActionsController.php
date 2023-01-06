@@ -16,10 +16,10 @@ class ApiGetPictoActionsController extends AbstractController
      * @Route("api/get/pictoActions", name="api_get_index_Actions", methods={"GET"})
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function index(PictoActionsRepository $PictoActionsRepository)
+    public function index(PictoActionsRepository $pictoActionsRepository)
     {
         //récupère toutes les catégories et retourne une réponse Json
-        return  $this->json($PictoActionsRepository->findAll(),200,[],['groups'=>'pictoActions']);
+        return  $this->json($pictoActionsRepository->findAll(),200,[],['groups'=>'pictoActions']);
     }
 
 }

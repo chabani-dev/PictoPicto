@@ -218,7 +218,7 @@ class Sentence
 
     public function __construct()
     {
-        $this->pictos = new ArrayCollection();
+        // $this->pictos = new ArrayCollection();
         $this->pictoAdjectifs = new ArrayCollection();
         $this->pictoActions = new ArrayCollection();
         $this->pictoAliments = new ArrayCollection();

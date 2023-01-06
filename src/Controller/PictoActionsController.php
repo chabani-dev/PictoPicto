@@ -43,7 +43,7 @@ class PictoActionsController extends AbstractController
     public function index(PictoActionsRepository $pictoActionsRepository ,CategoryRepository $category): Response
 
     {
-        // $category=$this->repository->find($id);
+        $category=$this->repository->find(3);
         return $this->render('picto_actions/index.html.twig', [
             'picto_actions' => $pictoActionsRepository->findAll(),
             'category' => $category

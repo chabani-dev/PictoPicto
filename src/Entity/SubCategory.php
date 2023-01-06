@@ -67,33 +67,44 @@ class SubCategory
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="subCategories")
      * @ORM\JoinColumn(nullable=false)
      * @Groups("subcategory")
-     * @Groups("pictogram")
+     * @Groups("pictopetitsMots")
+     * @Groups("pictoobjets")
+     * @Groups("pictopersonnes")
+     * @Groups("pictolieux")
      */
     private $category_id;
 
     /**
      * @ORM\ManyToOne(targetEntity=Therapist::class, inversedBy="subCategories")
+     * @Groups("pictopetitsMots")
+     * @Groups("pictoobjets")
+     * @Groups("pictopersonnes")
+     * @Groups("pictolieux")
      */
     private $therapist_id;
 
        
     /**
      * @ORM\OneToMany(targetEntity=PictoPetitsMots::class, mappedBy="subcategory_id")
+     * @Groups("pictopetitsMots")
      */
     private $pictoPetitsMots;
 
     /**
      * @ORM\OneToMany(targetEntity=PictoObjets::class, mappedBy="subcategory_id")
+     * @Groups("pictoobjets")
      */
     private $pictoObjets;
 
     /**
      * @ORM\OneToMany(targetEntity=PictoPersonnes::class, mappedBy="subcategory_id")
+     * @Groups("pictopersonnes")
      */
     private $pictoPersonnes;
 
     /**
      * @ORM\OneToMany(targetEntity=PictoLieux::class, mappedBy="subcategory_id")
+     * @Groups("pictolieux")
      */
     private $pictoLieuxes;
 

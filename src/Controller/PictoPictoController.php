@@ -101,9 +101,6 @@ class PictoPictoController extends AbstractController
         $couvertArray = $couvert->findAll();
         array_push($array, $couvertArray);
 
-        $emotionArray = $couvert->findAll();
-        array_push($array, $emotionArray);
-
         $emotionArray = $emotion->findAll();
         array_push($array, $emotionArray);
 

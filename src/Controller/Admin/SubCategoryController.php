@@ -62,7 +62,7 @@ Class SubCategoryController extends AbstractController
             $this->em->persist($subcategory);
             $this->em->flush();
             $this->addFlash('success', 'Sous catégorie créé avec succès');
-            return $this->redirectToRoute('category');
+            return $this->redirectToRoute('app_picto_picto');
         }
 
         return $this->render('subcategory/createSubCategory.html.twig', [

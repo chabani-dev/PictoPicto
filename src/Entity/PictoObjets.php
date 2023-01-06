@@ -205,13 +205,7 @@ class PictoObjets
      */
     private $pictograms;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Therapist", inversedBy="pictograms")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $therapist;
-
- 
+    
     /**
      * @ORM\ManyToMany(targetEntity=Sentence::class, inversedBy="pictoObjets")
      */
@@ -221,6 +215,11 @@ class PictoObjets
      * @ORM\ManyToOne(targetEntity=SubCategory::class, inversedBy="pictoObjets")
      */
     private $subcategory_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Therapist::class, inversedBy="pictoObjets")
+     */
+    private $therapist;
 
    
     
@@ -603,27 +602,6 @@ class PictoObjets
     }
 
     /**
-     * Get the value of therapist
-     */ 
-    public function getTherapist()
-    {
-        return $this->therapist;
-    }
-
-    /**
-     * Set the value of therapist
-     *
-     * @return  self
-     */ 
-    public function setTherapist($therapist)
-    {
-        $this->therapist = $therapist;
-
-        return $this;
-    }
-
-    
-    /**
      * @return Collection<int, Sentence>
      */
     public function getSentences(): Collection
@@ -655,6 +633,18 @@ class PictoObjets
     public function setSubcategoryId(?SubCategory $subcategory_id): self
     {
         $this->subcategory_id = $subcategory_id;
+
+        return $this;
+    }
+
+    public function getTherapist(): ?Therapist
+    {
+        return $this->therapist;
+    }
+
+    public function setTherapist(?Therapist $therapist): self
+    {
+        $this->therapist = $therapist;
 
         return $this;
     }

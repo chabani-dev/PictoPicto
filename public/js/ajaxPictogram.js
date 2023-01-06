@@ -202,7 +202,7 @@ function parcoursJSON(jsonObj) {
     speech.lang = "fr-FR"; // Langue
     speechSynthesis.speak(speech);
     // Appelle l'API des pictogrammes reliés à la catégorie
-    getData1("/api/get/pictogram", "/api/get/subcategory");
+    getData1("/api/get/pictoActions", "/api/get/subcategory");
     getCategorie(categorie);
   });
 }
@@ -256,6 +256,7 @@ function getResponse1() {
 
 /* Getter Categorie */
 function getCategorie(categorie) {
+  console.log("coucou");
   return categorie;
 }
 /* end Getter Categorie */

@@ -205,25 +205,22 @@ class PictoChiffres
      */
     private $pictograms;
 
-     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Therapist", inversedBy="pictograms")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $therapist;
-
- 
-
     /**
      * @ORM\ManyToMany(targetEntity=Sentence::class, inversedBy="pictoChiffres")
      */
     private $sentences;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Therapist::class, inversedBy="pictoChiffres")
+     */
+    private $therapist;
 
     
 
     public function __construct()
     {
       
-        $this->categories = new ArrayCollection();
+        //$this->categories = new ArrayCollection();
         $this->sentences = new ArrayCollection();
     }
 
@@ -597,27 +594,6 @@ class PictoChiffres
     }
 
     /**
-     * Get the value of therapist
-     */ 
-    public function getTherapist()
-    {
-        return $this->therapist;
-    }
-
-    /**
-     * Set the value of therapist
-     *
-     * @return  self
-     */ 
-    public function setTherapist($therapist)
-    {
-        $this->therapist = $therapist;
-
-        return $this;
-    }
-
-    
-    /**
      * @return Collection<int, Sentence>
      */
     public function getSentences(): Collection
@@ -637,6 +613,18 @@ class PictoChiffres
     public function removeSentence(Sentence $sentence): self
     {
         $this->sentences->removeElement($sentence);
+
+        return $this;
+    }
+
+    public function getTherapist(): ?Therapist
+    {
+        return $this->therapist;
+    }
+
+    public function setTherapist(?Therapist $therapist): self
+    {
+        $this->therapist = $therapist;
 
         return $this;
     }

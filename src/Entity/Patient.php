@@ -13,6 +13,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Patient implements UserInterface
 {
+
+    public function getUserIdentifier() {
+    // Retourne l'identifiant d'utilisateur du patient
+  }
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -231,4 +235,6 @@ class Patient implements UserInterface
 
         return $this;
     }
+
+ 
 }

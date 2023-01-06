@@ -206,18 +206,17 @@ class PictoActions
      */
     private $pictograms;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Therapist", inversedBy="pictograms")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $therapist;
-
    
-
     /**
      * @ORM\ManyToMany(targetEntity=Sentence::class, inversedBy="pictoActions")
+     * @Groups("pictoActions")
      */
     private $sentences;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Therapist::class, inversedBy="pictoActions")
+     */
+    private $therapist;
 
         
     public function __construct()
@@ -605,15 +604,7 @@ class PictoActions
         return $this;
     }
 
-    /**
-     * Get the value of therapist
-     */ 
-    public function getTherapist()
-    {
-        return $this->therapist;
-    }
-
-   
+       
 
     /**
      * @return Collection<int, Sentence>
@@ -635,6 +626,18 @@ class PictoActions
     public function removeSentence(Sentence $sentence): self
     {
         $this->sentences->removeElement($sentence);
+
+        return $this;
+    }
+
+    public function getTherapist(): ?Therapist
+    {
+        return $this->therapist;
+    }
+
+    public function setTherapist(?Therapist $therapist): self
+    {
+        $this->therapist = $therapist;
 
         return $this;
     }
