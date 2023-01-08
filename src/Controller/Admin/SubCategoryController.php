@@ -38,10 +38,10 @@ Class SubCategoryController extends AbstractController
         $this->em = $em;
     }
 
-    // /**
-    //  * @Route("admin/subcategory", name="subcategory")
-    //  * @return \Symfony\Component\HttpFoundation\Response
-    //  */
+    /**
+     * @Route("admin/subcategory", name="subcategory")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
 
     /**
      * @Route("lieux/newSubCategory", name="newSubCategoryLieux")

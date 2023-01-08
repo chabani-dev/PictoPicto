@@ -75,6 +75,7 @@ Class CategoryController extends AbstractController
 
         ]);
     }
+    
     /**
      * @Route("admin/newCategory", name="newCategory")
      */
@@ -92,7 +93,7 @@ Class CategoryController extends AbstractController
             $this->em->persist($category);
             $this->em->flush();
             $this->addFlash('success', 'Catégorie créé avec succès');
-            return $this->redirectToRoute('category');
+            return $this->redirectToRoute('app_picto_picto');
         }
 
         return $this->render('category/createCategory.html.twig', [

@@ -20,11 +20,11 @@ class PictoVetementsType extends AbstractType
 {
 
 
-      public function __construct(CategoryRepository $repo)
-    {
-        $this->repo = $repo;
+    //   public function __construct(CategoryRepository $repo)
+    // {
+    //     $this->repo = $repo;
         
-    }
+    // }
 
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -61,16 +61,36 @@ class PictoVetementsType extends AbstractType
                       ])
                     ],
                   ])
-            ->add('pictograms', EntityType::class, [
-                'label' => 'Pictogramme Vêtements :',
+
+                  ->add('pictograms', EntityType::class, [
+                'label' => 'Catégorie du nouveau pictogramme :',
                 'required' => false,
                 'class' => Category::class,
                 'choice_label' => 'name',
-                'choices' => $this->repo->findBy(['name' => 'Vêtements']),
                 'attr' => [
                     'class' => 'form-select'
                 ],
             ])
+            // ->add('subcategory_id', EntityType::class, [
+            //     'label' => 'Sous-Catégorie du nouveau pictogramme :',
+            //     'required' => false,
+            //     'class' => SubCategory::class,
+            //     'choice_label' => 'name',
+            //     'attr' => [
+            //         'class' => 'form-select'
+            //     ],
+            // ])
+
+            // ->add('pictograms', EntityType::class, [
+            //     'label' => 'Pictogramme Vêtements :',
+            //     'required' => false,
+            //     'class' => Category::class,
+            //     'choice_label' => 'name',
+            //     'choices' => $this->repo->findBy(['name' => 'Vêtements']),
+            //     'attr' => [
+            //         'class' => 'form-select'
+            //     ],
+            // ])
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

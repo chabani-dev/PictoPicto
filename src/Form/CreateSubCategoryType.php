@@ -60,15 +60,15 @@ class CreateSubCategoryType extends AbstractType
                     ])
                 ],
             ])
-            // ->add('category_id', EntityType::class, [
-            //     'label' => 'Catégorie de la nouvelle sous-catégorie*:',
-            //     'required' => true,
-            //     'class' => Category::class,
-            //     'choice_label' => 'name',
-            //     'attr' => [
-            //         'class' => 'form-select'
-            //     ],
-            // ])
+            ->add('category_id', EntityType::class, [
+                'label' => 'Catégorie de la nouvelle sous-catégorie*:',
+                'required' => true,
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'attr' => [
+                    'class' => 'form-select'
+                ],
+            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Ajouter la nouvelle sous-catégorie',
                 'attr' => [
