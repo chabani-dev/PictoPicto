@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\PictoTransports;
 use App\Entity\Category;
-use App\Entity\SubCategory;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -19,6 +18,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoTransportsType extends AbstractType
 {
+    private $repo;
+
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;
@@ -69,7 +70,6 @@ class PictoTransportsType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-          
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

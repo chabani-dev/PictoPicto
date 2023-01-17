@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\PictoScolarite;
 use App\Entity\Category;
-use App\Entity\SubCategory;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -19,6 +18,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoScolariteType extends AbstractType
 {
+    private $repo;
+
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;
@@ -71,7 +72,6 @@ class PictoScolariteType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-           
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

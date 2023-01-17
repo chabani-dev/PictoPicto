@@ -18,7 +18,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoAdjectifsType extends AbstractType
 {
-
+     private $repo;
+     
      public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;
@@ -27,10 +28,7 @@ class PictoAdjectifsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            // ->add('name')
-            // ->add('filename')
-            // ->add('update_at')
-              ->add('name', TextType::class, [
+            ->add('name', TextType::class, [
                 'label' => 'Nom du pictogramme*:',
                 'required' => true,
                 'attr' => [

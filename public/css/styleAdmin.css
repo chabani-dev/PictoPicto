@@ -38,10 +38,12 @@ body {
 }*/
 
 /* Pages Title */
-.title {
+.title-h1 {
   color: #6f6d75;
-  font-size: 1.5rem !important;
+  font-size: 2rem !important;
   font-family: "Fira Sans Condensed", sans-serif;
+  text-align: center;
+  margin: 20px;
 }
 
 /* Menu */
@@ -102,9 +104,9 @@ ul {
   list-style-type: none;
 }
 
-/*.background ul li {*/
-/*    display:none;*/
-/*}*/
+.background ul li {
+  display: none;
+}
 
 .pictoList {
   height: 5rem;
@@ -195,22 +197,22 @@ ul {
   left: 90%;
   margin: auto 0;
   font-size: 2rem;
-  /*transition: all 500ms;*/
+  transition: all 500ms;
 }
-/*.accordion-item:hover .fa-plus {
-    transform: scale(1.2);
-}*/
+.accordion-item:hover .fa-plus {
+  transform: scale(1.2);
+}
 .accordion-item .bi-dash {
   position: relative;
   left: 90%;
   margin: auto 0;
   font-size: 2rem;
-  /*transition: all 500ms;*/
+  transition: all 500ms;
 }
 
-/*.accordion-item:hover .fa-minus {
-    transform: scale(1.2);
-}*/
+.accordion-item:hover .fa-minus {
+  transform: scale(1.2);
+}
 .buttonDelete {
   margin-left: 0.5rem;
   background-color: #e47e5b;
@@ -287,8 +289,8 @@ ul.dropdown-menu {
 }
 .Picto-liste {
   display: flex;
-  margin: 10px;
-  /* padding: 10px; */
+  margin: 20px;
+  padding: 10px;
   gap: 2%;
   justify-content: flex-start;
   align-content: flex-start;

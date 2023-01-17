@@ -10,7 +10,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -20,6 +19,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoCouvertsType extends AbstractType
 {
+    private $repo;
+
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;
@@ -71,15 +72,6 @@ class PictoCouvertsType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-            // ->add('subcategory_id', EntityType::class, [
-            //     'label' => 'Sous-Catégorie du nouveau pictogramme :',
-            //     'required' => false,
-            //     'class' => SubCategory::class,
-            //     'choice_label' => 'name',
-            //     'attr' => [
-            //         'class' => 'form-select'
-            //     ],
-            // ])
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

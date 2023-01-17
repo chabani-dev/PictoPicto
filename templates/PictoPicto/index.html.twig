@@ -1,43 +1,45 @@
 {% extends 'baseTherapist.html.twig' %}
 
-{% block title %} Pictogrammes | PictoPicto {% endblock %}
+{% block title %} Créations Pictogrammes | PictoPicto {% endblock %}
 {% block content %}
 <!-- titre de l'item choisi -->
-    <span class="title">Pictogrammes, Catégories et Sous-Catégories</span>
+    <h1 class="title-h1">Créations des Pictogrammes</h1>
 
  <!-- btn création catégories et picotgrammes -->
     <div class="Picto-liste">
-              <a href="{{ path('app_picto_actions_index') }}" class="btn btn-dark btn-sm">PictoActions</a>
-               <a href="{{ path('app_picto_adjectifs_index') }}" class="btn btn-dark btn-sm">PictoAdjectif</a>
-               <a href="{{ path('app_picto_aliments_index') }}" class="btn btn-dark btn-sm">PictoAdjectif</a>
-                <a href="{{ path('app_picto_animaux_index') }}" class="btn btn-dark btn-sm">PictoAnimaux</a>
-                <a href="{{ path('app_picto_autres_mots_index') }}" class="btn btn-dark btn-sm">PictoAutres mots</a>
-                <a href="{{ path('app_picto_boissons_index') }}" class="btn btn-dark btn-sm">PictoBoisson</a>
-                <a href="{{ path('app_picto_chiffres_index') }}" class="btn btn-dark btn-sm">PictoChiffres</a>
-                <a href="{{ path('app_picto_comportements_index') }}" class="btn btn-dark btn-sm">PictoComportements</a>
-                <a href="{{ path('app_picto_corps_humain_index') }}" class="btn btn-dark btn-sm">PictoCorpsHumain</a>
-                <a href="{{ path('app_picto_couleurs_index') }}" class="btn btn-dark btn-sm">PictoCouleur</a>
-                <a href="{{ path('app_picto_couverts_index') }}" class="btn btn-dark btn-sm">PictoCouvert</a>
-                <a href="{{ path('app_picto_emotions_index') }}" class="btn btn-dark btn-sm">PictoEmotions</a>
-                <a href="{{ path('app_picto_formes_index') }}" class="btn btn-dark btn-sm">PictoFormes</a>
-                <a href="{{ path('app_picto_fruits_legumes_index') }}" class="btn btn-dark btn-sm">PictoFruitsLegumes</a>
-                <a href="{{ path('app_picto_heures_index') }}" class="btn btn-dark btn-sm">PictoHeure</a>
-                <a href="{{ path('app_picto_interrogatif_index') }}" class="btn btn-dark btn-sm">PictoInterrogatif</a>
-                <a href="{{ path('app_picto_jouet_index') }}" class="btn btn-dark btn-sm">Pictojouet</a>
-                <a href="{{ path('app_picto_journees_index') }}" class="btn btn-dark btn-sm">Pictojournees</a>
-                <a href="{{ path('app_picto_langues_des_signes_index') }}" class="btn btn-dark btn-sm">PictoLanguesDesSignes</a>
-                <a href="{{ path('app_picto_lieux_index') }}" class="btn btn-dark btn-sm">PictoLieux</a>
-                <a href="{{ path('app_picto_meteo_index') }}" class="btn btn-dark btn-sm">PictoMeteo</a>
-                <a href="{{ path('app_picto_multimedia_index') }}" class="btn btn-dark btn-sm">PictoMultimedia</a>
-                <a href="{{ path('app_picto_objets_index') }}" class="btn btn-dark btn-sm">PictoObjets</a>
-                <a href="{{ path('app_picto_orientation_index') }}" class="btn btn-dark btn-sm">PictoOrientation</a>
-                <a href="{{ path('app_picto_personnes_index') }}" class="btn btn-dark btn-sm">PictoPersonnes</a>
-                <a href="{{ path('app_picto_petits_mots_index') }}" class="btn btn-dark btn-sm">PictoPetitsMots</a>
-                <a href="{{ path('app_picto_scolarite_index') }}" class="btn btn-dark btn-sm">PictoScolarite</a>
-                <a href="{{ path('app_picto_securite_routiere_index') }}" class="btn btn-dark btn-sm">PictoSecuriteRoutiere</a>
-                <a href="{{ path('app_picto_sports_index') }}" class="btn btn-dark btn-sm">PictoSports</a>
-                <a href="{{ path('app_picto_sujets_index') }}" class="btn btn-dark btn-sm">PictoSujets</a>
-                <a href="{{ path('app_picto_transports_index') }}" class="btn btn-dark btn-sm">PictoTransports</a>
-                <a href="{{ path('app_picto_vetements_index') }}" class="btn btn-dark btn-sm">PictoVêtements</a>
+               <a href="{{ path('app_picto_actions_new') }}" class="btn btn-dark btn-sm">PictoActions</a>
+               <a href="{{ path('app_picto_adjectifs_new') }}" class="btn btn-dark btn-sm">PictoAdjectif</a>
+               <a href="{{ path('app_picto_aliments_new') }}" class="btn btn-dark btn-sm">PictoAliments</a>
+                  <a href="{{ path('app_picto_animaux_new') }}" class="btn btn-dark btn-sm">PictoAnimaux</a>
+                  <a href="{{ path('app_picto_autres_mots_new') }}" class="btn btn-dark btn-sm">PictoAutres mots</a>
+                  <a href="{{ path('app_picto_boissons_new') }}" class="btn btn-dark btn-sm">PictoBoisson</a>
+                  <a href="{{ path('app_picto_chiffres_new') }}" class="btn btn-dark btn-sm">PictoChiffres</a>
+                  <a href="{{ path('app_picto_comportements_new') }}" class="btn btn-dark btn-sm">PictoComportements</a>
+                  <a href="{{ path('app_picto_corps_humain_new') }}" class="btn btn-dark btn-sm">PictoCorpsHumain</a>
+                  <a href="{{ path('app_picto_couleurs_new') }}" class="btn btn-dark btn-sm">PictoCouleur</a>
+                  <a href="{{ path('app_picto_couverts_new') }}" class="btn btn-dark btn-sm">PictoCouvert</a>
+                  <a href="{{ path('app_picto_emotions_new') }}" class="btn btn-dark btn-sm">PictoEmotions</a>
+                  <a href="{{ path('app_picto_formes_new') }}" class="btn btn-dark btn-sm">PictoFormes</a>
+                  <a href="{{ path('app_picto_fruits_legumes_new') }}" class="btn btn-dark btn-sm">PictoFruitsLegumes</a>
+                  <a href="{{ path('app_picto_heures_new') }}" class="btn btn-dark btn-sm">PictoHeure</a>
+                  <a href="{{ path('app_picto_interrogatif_new') }}" class="btn btn-dark btn-sm">PictoInterrogatif</a>
+                  <a href="{{ path('app_picto_jouet_new') }}" class="btn btn-dark btn-sm">Pictojouet</a>
+                  <a href="{{ path('app_picto_journees_new') }}" class="btn btn-dark btn-sm">Pictojournees</a>
+                  <a href="{{ path('app_picto_langues_des_signes_new') }}" class="btn btn-dark btn-sm">PictoLanguesDesSignes</a>
+               <a href="{{ path('app_picto_meteo_new') }}" class="btn btn-dark btn-sm">PictoMeteo</a>
+                  <a href="{{ path('app_picto_multimedia_new') }}" class="btn btn-dark btn-sm">PictoMultimedia</a>
+               <a href="{{ path('app_picto_orientation_new') }}" class="btn btn-dark btn-sm">PictoOrientation</a>
+               <a href="{{ path('app_picto_scolarite_new') }}" class="btn btn-dark btn-sm">PictoScolarite</a>
+                  <a href="{{ path('app_picto_securite_routiere_new') }}" class="btn btn-dark btn-sm">PictoSecuriteRoutiere</a>
+                  <a href="{{ path('app_picto_sports_new') }}" class="btn btn-dark btn-sm">PictoSports</a>
+                  <a href="{{ path('app_picto_sujets_new') }}" class="btn btn-dark btn-sm">PictoSujets</a>
+                  <a href="{{ path('app_picto_transports_new') }}" class="btn btn-dark btn-sm">PictoTransports</a>
+                  <a href="{{ path('app_picto_vetements_new') }}" class="btn btn-dark btn-sm">PictoVêtements</a>
+
+<a href="{{ path('app_picto_objets_new') }}" class="btn btn-dark btn-sm">PictoObjets</a>
+                  <a href="{{ path('app_picto_lieux_new') }}" class="btn btn-dark btn-sm">PictoLieux</a>
+                  <a href="{{ path('app_picto_personnes_new') }}" class="btn btn-dark btn-sm">PictoPersonnes</a>
+                  <a href="{{ path('app_picto_petits_mots_new') }}" class="btn btn-dark btn-sm">PictoPetitsMots</a>
+                  
 </div>
 {% endblock %}

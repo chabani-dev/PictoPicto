@@ -19,6 +19,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoPetitsMotsType extends AbstractType
 {
+    private $repo;
+    
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;

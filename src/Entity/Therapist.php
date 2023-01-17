@@ -25,7 +25,7 @@ class Therapist implements UserInterface
     //  */
     // private $pictograms;
 
-     /**
+    /**
      * @ORM\OneToMany(targetEntity=Category::class, mappedBy="therapist")
      */
     private $categories;
@@ -468,8 +468,8 @@ class Therapist implements UserInterface
 
     public function removeCategory(Category $category): self
     {
-        if ($this->notes->removeElement($category)) {
-            // set the owning side to null (unless already changed)
+        if ($this->categories->removeElement($category)) {
+     
             if ($category->getTherapist() === $this) {
                 $category->setTherapist(null);
             }

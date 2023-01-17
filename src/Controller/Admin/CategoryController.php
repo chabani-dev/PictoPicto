@@ -53,7 +53,7 @@ Class CategoryController extends AbstractController
             $pict = $this->em->getRepository(Pictogram::class)->findWithSearch($search);// fonction findWhithSearch
             if(empty ($pict)){//si pas de picto trouvé
                 $this->addFlash('alert', 'Désolé, nous ne trouvons pas de pictogramme correspondant à votre saisie.');
-               return $this->redirectToRoute('category');
+               return $this->redirectToRoute('app_picto_picto');
             }else{
                 foreach ($pict as $picts) {// renvoie tous les pictogrammes
                     $categorieId[]= $picts->getCategory();// récupère la catégorie
@@ -128,7 +128,7 @@ Class CategoryController extends AbstractController
                 $this->em->persist($pictogram);
                 $this->em->flush();
                 $this->addFlash('success', 'Pictogramme créé avec succès');
-                return $this->redirectToRoute('category');
+                return $this->redirectToRoute('app_picto_picto');
             }
         }
         

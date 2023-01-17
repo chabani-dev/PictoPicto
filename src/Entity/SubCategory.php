@@ -149,7 +149,7 @@ class SubCategory
         return $this;
     }
 
-        /**
+    /**
      * Get mimeTypes="image/png"
      *
      * @return  File

@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\PictoAliments;
 use App\Entity\Category;
-use App\Entity\SubCategory;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -19,7 +18,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoAlimentsType extends AbstractType
 {
-
+        private $repo;
+        
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;
@@ -28,10 +28,7 @@ class PictoAlimentsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            // ->add('name')
-            // ->add('filename')
-            // ->add('update_at')
-              ->add('name', TextType::class, [
+            ->add('name', TextType::class, [
                 'label' => 'Nom du pictogramme*:',
                 'required' => true,
                 'attr' => [
@@ -72,15 +69,6 @@ class PictoAlimentsType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-            // ->add('subcategory_id', EntityType::class, [
-            //     'label' => 'Sous-Catégorie du nouveau pictogramme :',
-            //     'required' => false,
-            //     'class' => SubCategory::class,
-            //     'choice_label' => 'name',
-            //     'attr' => [
-            //         'class' => 'form-select'
-            //     ],
-            // ])
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

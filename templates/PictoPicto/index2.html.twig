@@ -10,9 +10,7 @@
                   
         <!-- btn création picotgrammes -->
     <div class="pictoactions">
-            <a href="{{ path('app_picto_vetements_new') }}" class="btn btn-dark btn-sm">PictoVêtements</a>
-
-             <a href="{{ path('newSubCategoryLieux') }}" class="btn btn-dark btn-sm">newSubCategoryLieux</a>
+            {# <a href="{{ path('newSubCategoryLieux') }}" class="btn btn-dark btn-sm">newSubCategoryLieux</a> #}
                 <a href="{{ path('newCategory') }}" class="btn btn-dark btn-sm ">Créer une catégorie</a>
            
     </div>
@@ -21,8 +19,8 @@
 
  <!-- message  -->
     <div class="container-fluid mt-3 p-4 background">
-        {# <div class="row">
-            <div class="col-12"> #}
+        <div class="row">
+            <div class="col-12">
                 {% for message in app.flashes('success') %}
                     <div class="alert alert-success">
                         {{ message }}
@@ -33,28 +31,27 @@
                 {% endfor %}
  <!-- end message -->
 
-  <!-- création catégories et picotgrammes -->
+  <!-- Affichage catégories et picotgrammes -->
+    <div class="accordion">
+                    {% for arrayItem in array %}
+                    <div class="p-3 accordion-item d-flex">
+                        <img class="pictoList" src="{{ asset('images/categories/'~ arrayItem[1].pictograms.filename) }}" alt="image de la catégorie"> 
+                    <span class="my-auto ms-2 ">{{ arrayItem[1].pictograms.name }}</span> 
+                    </div>
+                        <div class="d-flex flex-wrap">
+                        {% for item in arrayItem %}
 
-                <div class="accordion">
-                   {% for arrayItem in array %}
-                        <div class="p-3 accordion-item d-flex">
-                              <img class="pictoList" src="{{ asset('images/categories/'~ arrayItem[1].pictograms.filename) }}" alt=""> 
-                <span class="my-auto ms-2 ">{{ arrayItem[1].pictograms.name }}</span> 
-                            </div>
-                            <div>
-                                <div class="d-flex flex-wrap">
-                                    {% for item in arrayItem %}
-                                     
-                                    <div class="text-center ms-md-5">
-                                               <img class="pictoList"src="{{ asset('images/pictograms/' ~ item.filename) }}"                 alt=""> 
-                            <figcaption class="picText">{{ item.name }} </figcaption>
+                        <div class="text-center ms-md-5">
+                        <img class="pictoList"src="{{ asset('images/pictograms/' ~ item.filename) }}" alt="image du pictogramme"> 
+                        <figcaption class="picText">{{ item.name }} </figcaption>
                         </div>
-                {% endfor %}
-                                  </div>    
-    </div>
-{% endfor %}
-
- {# pour les pictoList avec les sous-categorie  #}
+                        {% endfor %}
+                        </div>    
+             
+                        {% endfor %}
+   </div>
+            {# pour les pictoList avec les sous-categorie  #}
+            
                         {% for category in array2 %}
                         {% if category.therapist == null %}
                         <div class="p-3 accordion-item d-flex">
@@ -62,12 +59,13 @@
         <span class="my-auto ms-2">{{ category.name }}</span>
                         </div>
                         <div class="container-fluid p-4 background">  
-                        <div class="accordion" id="accordionExample">
+                        <div class="subaccordion" id="accordionExample">
                          {% for subcat in subCategories %}
                         {% if subcat.categoryid == category %}
                         <div class="accordion-item mb-3">
                         <h2 class="accordion-header" id="heading{{subcat.id}}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{subcat.id}}" aria-expanded="false" aria-controls="collapse{{subcat.id}}">
+                       
                          <img class="pictoList" src="{{ asset('images/sous-categories/'~subcat.filename) }}" alt="">
                         <span class="my-auto ms-2">{{ subcat.name }}</span>
                         </button>
@@ -76,7 +74,10 @@
                         <div class="d-flex flex-wrap">
                         {% for pic in pict %}
                         {# {% if pic.subcategoryid == subcat %} #}
-                        {% if pic is defined and pic.attribute('subcategoryid') is defined and pic.subcategoryid == subcat %} 
+
+                {# {% if pic.subcategoryid is defined and pic.subcategoryid == subcat %} #}
+    
+    {% if pic is defined and pic.attribute('subcategoryid') is defined and pic.subcategoryid == subcat %} 
 
          {# le code à exécuter si l'objet existe, si la clé existe et si les deux identifiants sont égaux #}
                         <div class="accordion-body">
@@ -121,7 +122,7 @@
                         </div>
 
 
-     </div>
+    </div>
 
 {% endblock %}
        

@@ -37,6 +37,7 @@ use App\Repository\PictoSujetsRepository;
 use App\Repository\PictoTransportsRepository;
 use App\Repository\PictoVetementsRepository;
 use App\Repository\SubCategoryRepository;
+use Doctrine\Common\Collections\Expr\Value;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -67,6 +68,7 @@ class PictoPictoController extends AbstractController
     {
         $array = [];
         $array2 = [];
+      
         $actionArray = $action->findAll();
         array_push($array, $actionArray);
         // dd($actionArray);
@@ -177,5 +179,13 @@ class PictoPictoController extends AbstractController
             'subCategories' => $subCategoriesArray,
             'pict' => $pict,
         ]);
+    }
+
+     /**
+     * @Route("/pictos", name="pictos")
+     */
+    public function pictos()
+    {
+        return $this->render('PictoPicto/index.html.twig');
     }
 }

@@ -1,38 +1,65 @@
 let myRequest;
+let myRequest1;
 let responseData;
 const speech = new SpeechSynthesisUtterance();
 
 getData("/api/get/category");
 
 /* Requête Category */
-function getData(url) {
-  myRequest = new XMLHttpRequest();
-  myRequest.onreadystatechange = getResponse;
-  myRequest.open("GET", url);
-  myRequest.setRequestHeader("content-type", "application-json");
-  myRequest.send();
+// function getData(url) {
+//   myRequest = new XMLHttpRequest();
+//   myRequest.onreadystatechange = getResponse;
+//   myRequest.open("GET", url);
+//   myRequest.setRequestHeader("content-type", "application-json");
+//   myRequest.send();
+// }
+
+async function getData(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
 }
+
 /* end Requête Category */
 
 /* Réponse Category */
-function getResponse() {
+// function getResponse() {
+//   try {
+//     if (myRequest.readyState === XMLHttpRequest.DONE) {
+//       switch (myRequest.status) {
+//         case 500:
+//           break;
+//         case 404:
+//           break;
+//         case 200:
+//           responseData = JSON.parse(myRequest.responseText);
+//           parcoursJSON(responseData);
+//           break;
+//       }
+//     }
+//   } catch (ex) {
+//     console.log("Ajax error: " + ex.description);
+//   }
+// }
+
+async function getData(url) {
   try {
-    if (myRequest.readyState === XMLHttpRequest.DONE) {
-      switch (myRequest.status) {
-        case 500:
-          break;
-        case 404:
-          break;
-        case 200:
-          responseData = JSON.parse(myRequest.responseText);
-          parcoursJSON(responseData);
-          break;
-      }
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      parcoursJSON(data);
+    } else {
+      console.error(`Error ${response.status}: ${response.statusText}`);
     }
-  } catch (ex) {
-    console.log("Ajax error: " + ex.description);
+  } catch (error) {
+    console.error(error);
   }
 }
+
 /* end Réponse Category */
 
 /* Parcours Objets Category */
@@ -192,68 +219,141 @@ function parcoursJSON(jsonObj) {
   }
 
   // Au clic d'une catégorie
+  // $(".audioC").click(function () {
+  //   categorie = $(this).attr("title");
+  //   // La synthèse vocale lit son titre
+  //   speech.text = categorie;
+  //   speech.pitch = 1; // 0 à 2 = Hauteur
+  //   speech.rate = 1; // 0.5 à 2 = Vitesse
+  //   speech.volume = 0.5; // 0 à 1 = Volume
+  //   speech.lang = "fr-FR"; // Langue
+  //   speechSynthesis.speak(speech);
+  //   // Appelle l'API des pictogrammes reliés à la catégorie
+  //   getData1("/api/get/pictogram", "/api/get/subcategory");
+  //   getCategorie(categorie);
+  // });
+
+  async function handleAPICalls(urls) {
+    urls.forEach(async (url) => {
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data);
+        } else {
+          console.error(`Error ${response.status}: ${response.statusText}`);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
   $(".audioC").click(function (categorie) {
-    categorie = $(this).attr("title");
-    // La synthèse vocale lit son titre
-    speech.text = categorie;
-    speech.pitch = 1; // 0 à 2 = Hauteur
-    speech.rate = 1; // 0.5 à 2 = Vitesse
-    speech.volume = 0.5; // 0 à 1 = Volume
-    speech.lang = "fr-FR"; // Langue
+    speech.text = $(this).attr("title");
     speechSynthesis.speak(speech);
-    // Appelle l'API des pictogrammes reliés à la catégorie
-    // getData1([
-    //   "/api/get/pictoObjets",
-    //   "/api/get/pictoActions",
-    //   "/api/get/subcategory",
-    // ]);
-    getData1("/api/get/pictogram", "/api/get/subcategory");
+    handleAPICalls([
+      "/api/get/pictoObjets",
+      "/api/get/pictoAliments",
+      "/api/get/pictoLieux",
+      "/api/get/pictoBoissons",
+      "/api/get/pictoActions",
+      "/api/get/subcategory",
+    ]);
     getCategorie(categorie);
   });
 }
 /* end Parcours Objets Categories */
 
 /* Requête Pictogram */
-function getData1(url, url1) {
-  // url = api/get/pictogram  url1 = api/get/subcategory
-  myRequest = new XMLHttpRequest();
-  myRequest.onreadystatechange = getResponse1;
-  myRequest.open("GET", url);
-  myRequest.setRequestHeader("content-type", "application-json");
-  myRequest.send();
-  myRequest1 = new XMLHttpRequest();
-  myRequest1.onreadystatechange = getResponse1;
-  myRequest1.open("GET", url1);
-  myRequest1.setRequestHeader("content-type", "application-json");
-  myRequest1.send();
+// function getData1(url, url1) {
+//   // url = api/get/pictogram  url1 = api/get/subcategory
+//   myRequest = new XMLHttpRequest();
+//   myRequest.onreadystatechange = getResponse1;
+//   myRequest.open("GET", url);
+//   myRequest.setRequestHeader("content-type", "application-json");
+//   myRequest.send();
+//   myRequest1 = new XMLHttpRequest();
+//   myRequest1.onreadystatechange = getResponse1;
+//   myRequest1.open("GET", url1);
+//   myRequest1.setRequestHeader("content-type", "application-json");
+//   myRequest1.send();
+// }
+
+//  le code en supprimant l'utilisation de l'objet XMLHttpRequest et en utilisant la fonction 'fetch' à la place.
+async function getData1(url, url1) {
+  try {
+    const response1 = await fetch(url);
+    if (response1.ok) {
+      const data1 = await response1.json();
+      console.log(data1);
+    } else {
+      console.error(`Error ${response1.status}: ${response1.statusText}`);
+    }
+
+    const response2 = await fetch(url1);
+    if (response2.ok) {
+      const data2 = await response2.json();
+      console.log(data2);
+    } else {
+      console.error(`Error ${response2.status}: ${response2.statusText}`);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
+
 /* Requête Pictogram */
 
 /* Réponse Pictogram */
-function getResponse1() {
+// function getResponse1() {
+//   try {
+//     if (
+//       myRequest.readyState === XMLHttpRequest.DONE &&
+//       myRequest1.readyState === XMLHttpRequest.DONE
+//     ) {
+//       switch (myRequest.status && myRequest1.status) {
+//         case 500:
+//           break;
+//         case 404:
+//           break;
+//         case 200:
+//           categorie = getCategorie(categorie);
+//           responseData1 = JSON.parse(myRequest1.responseText);
+//           responseData = JSON.parse(myRequest.responseText);
+//           parcoursJSON1(categorie, responseData1, responseData);
+//           break;
+//       }
+//     }
+//   } catch (ex) {
+//     console.log("Ajax error: " + ex.description);
+//   }
+// }
+
+/* Réponse Pictogram */
+// la fonction handleAPIResponses accepte une catégorie de paramètre. Le tableau urls contient tous les points de terminaison d'API que vous souhaitez appeler.
+
+async function handleAPIResponses() {
   try {
-    if (
-      myRequest.readyState === XMLHttpRequest.DONE &&
-      myRequest1.readyState === XMLHttpRequest.DONE
-    ) {
-      switch (myRequest.status && myRequest1.status) {
-        case 500:
-          break;
-        case 404:
-          break;
-        case 200:
-          categorie = getCategorie(categorie);
-          responseData1 = JSON.parse(myRequest1.responseText);
-          responseData = JSON.parse(myRequest.responseText);
-          parcoursJSON1(categorie, responseData1, responseData);
-          break;
+    const urls = [
+      "/api/get/pictoObjets",
+      "/api/get/pictoAliments",
+      "/api/get/pictoLieux",
+      "/api/get/pictoBoissons",
+      "/api/get/pictoActions",
+    ];
+    const responses = await Promise.all(urls.map((url) => fetch(url)));
+
+    responses.forEach(async (response, index) => {
+      if (response.ok) {
+        const data = await response.json();
+        console.log(`Data from ${urls[index]}`);
+        console.log(data);
+      } else {
+        console.error(`Error ${response.status}: ${response.statusText}`);
       }
-    }
-  } catch (ex) {
-    //console.log("Ajax error: " + ex.description);
-    console.log(
-      "Erreur Ajax : " + ex.message + " , code d'état : " + ex.status
-    );
+    });
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -392,9 +492,22 @@ function parcoursJSON1(categorie, jsonObj1, jsonObj) {
 }
 /* end Parcours SubCategory Pictogram */
 
+// $(document).on("click", ".audioSCP", function (e) {
+//   // Lorsque la souris intervient sur un pictogramme
+//   // $(".audioSCP").click(function(){
+//   subcategorie = $(this).attr("title");
+//   speech.text = subcategorie;
+//   speech.pitch = 1; // 0 à 2 = Hauteur
+//   speech.rate = 1; // 0.5 à 2 = Vitesse
+//   speech.volume = 0.5; // 0 à 1 = Volume
+//   speech.lang = "fr-FR"; // Langue
+//   speechSynthesis.speak(speech);
+//   getData2("/api/get/pictoActions");
+//   getSubCategorie(subcategorie);
+// });
+
 $(document).on("click", ".audioSCP", function (e) {
   // Lorsque la souris intervient sur un pictogramme
-  // $(".audioSCP").click(function(){
   subcategorie = $(this).attr("title");
   speech.text = subcategorie;
   speech.pitch = 1; // 0 à 2 = Hauteur
@@ -402,8 +515,22 @@ $(document).on("click", ".audioSCP", function (e) {
   speech.volume = 0.5; // 0 à 1 = Volume
   speech.lang = "fr-FR"; // Langue
   speechSynthesis.speak(speech);
-  getData2("/api/get/pictogram");
+  getData2("/api/get/pictoActions");
+  getData2("/api/get/pictoObjets");
+  getData2("/api/get/pictoAliments");
+  getData2("/api/get/pictoLieux");
+  getData2("/api/get/pictoBoissons");
   getSubCategorie(subcategorie);
+});
+Promise.all([
+  getData2("/api/get/pictoObjets"),
+  getData2("/api/get/pictoAliments"),
+  getData2("/api/get/pictoLieux"),
+  getData2("/api/get/pictoBoissons"),
+  getData2("/api/get/pictoActions"),
+]).then(function (responses) {
+  // Do something with the responses
+  getResponse2(responses);
 });
 
 $(document).on("mousedown", ".audioP", function (e) {
@@ -424,13 +551,28 @@ function getSubCategorie(subcategorie) {
 /* end Getter Categorie */
 
 /* Requête Category */
+// function getData2(url) {
+//   myRequest = new XMLHttpRequest();
+//   myRequest.onreadystatechange = getResponse2;
+//   myRequest.open("GET", url);
+//   myRequest.setRequestHeader("content-type", "application-json");
+//   myRequest.send();
+// }
+
 function getData2(url) {
-  myRequest = new XMLHttpRequest();
-  myRequest.onreadystatechange = getResponse2;
-  myRequest.open("GET", url);
-  myRequest.setRequestHeader("content-type", "application-json");
-  myRequest.send();
+  return new Promise(function (resolve, reject) {
+    myRequest = new XMLHttpRequest();
+    myRequest.onreadystatechange = function () {
+      if (myRequest.readyState === 4 && myRequest.status === 200) {
+        resolve(myRequest.response);
+      }
+    };
+    myRequest.open("GET", url);
+    myRequest.setRequestHeader("content-type", "application-json");
+    myRequest.send();
+  });
 }
+
 /* end Requête Category */
 
 /* Réponse Pictogram */

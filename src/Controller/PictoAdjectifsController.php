@@ -21,16 +21,20 @@ class PictoAdjectifsController extends AbstractController
      * @var CategoryRepository
      */
     private $repository;
+    
     /**
      * @var EntityManagerInterface
      */
     private $em;
+
 
     public function __construct(PictoAdjectifsRepository $repository, EntityManagerInterface $em)
     {
         $this->repository = $repository;
         $this->em = $em;
     }
+
+
     /**
      * @Route("/", name="app_picto_adjectifs_index", methods={"GET"})
      */
@@ -52,10 +56,6 @@ class PictoAdjectifsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
              $category = $form->get('pictograms')->getData();
-            // $subcategory = $form->get('subcategory_id')->getData();
-            // if ( $category  && $subcategory) {
-            //     $this->addFlash('echec', 'Ne peut avoir qu\'une catégorie ou une sous-catégorie');
-            //     return $this->redirectToRoute('app_picto_adjectifs_new');
             if (!$category ) {
                 $this->addFlash('echec', 'Doit posséder une catégorie');
                 return $this->redirectToRoute('app_picto_adjectifs_new');

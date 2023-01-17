@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\PictoJournees;
 use App\Entity\Category;
-use App\Entity\SubCategory;
 use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -19,6 +18,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoJourneesType extends AbstractType
 {
+
+    private $repo;
+    
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;

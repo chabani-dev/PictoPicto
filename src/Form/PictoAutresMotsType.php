@@ -19,7 +19,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoAutresMotsType extends AbstractType
 {
-
+        private $repo;
+        
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;
@@ -70,15 +71,6 @@ class PictoAutresMotsType extends AbstractType
                     'class' => 'form-select'
                 ],
             ])
-            // ->add('subcategory_id', EntityType::class, [
-            //     'label' => 'Sous-Catégorie du nouveau pictogramme :',
-            //     'required' => false,
-            //     'class' => SubCategory::class,
-            //     'choice_label' => 'name',
-            //     'attr' => [
-            //         'class' => 'form-select'
-            //     ],
-            // ])
             ->add('genre', TextType::class, [
                 'label' => 'Genre du mot:',
                 'required' => false,

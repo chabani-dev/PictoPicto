@@ -20,6 +20,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PictoComportementsType extends AbstractType
 {
+        private $repo;
+        
       public function __construct(CategoryRepository $repo)
     {
         $this->repo = $repo;

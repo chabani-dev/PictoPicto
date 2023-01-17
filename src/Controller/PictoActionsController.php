@@ -64,16 +64,10 @@ class PictoActionsController extends AbstractController
         $therapistId=$this->em->getRepository(Therapist::class)->find($this->getUser()->getId());
         //$pictogram->setTherapist($therapistId);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $category = $form->get('pictograms')->getData();
-            // $subcategory = $form->get('subcategory_id')->getData();
-         
-
-            // if ( $category  && $subcategory) {
-            //     $this->addFlash('echec', 'Ne peut avoir qu\'une catégorie ou une sous-catégorie');
-            //     return $this->redirectToRoute('app_picto_actions_new');
-            } if (!$category ) {
-                $this->addFlash('echec', 'Doit posséder une catégorie ');
+         if ($form->isSubmitted() && $form->isValid()) {
+             $category = $form->get('pictograms')->getData();
+            if (!$category ) {
+                $this->addFlash('echec', 'Doit posséder une catégorie');
                 return $this->redirectToRoute('app_picto_actions_new');
             } else {
                 $pictogram = $form->getData();
@@ -82,8 +76,8 @@ class PictoActionsController extends AbstractController
                 $this->addFlash('success', 'Pictogramme créé avec succès');
                 return $this->redirectToRoute('app_picto_picto');
             }
-        
-        return $this->render('picto_actions/new.html.twig', [
+        }
+          return $this->render('picto_actions/new.html.twig', [
             'pictograms' => $pictogram,
             'form' => $form->createView(),
             
