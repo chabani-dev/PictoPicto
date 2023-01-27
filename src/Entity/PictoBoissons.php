@@ -28,7 +28,7 @@ class PictoBoissons
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoboissons")
+     * @Groups("pictoBoissons")
      */
     private $name;
 

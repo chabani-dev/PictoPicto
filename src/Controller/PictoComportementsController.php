@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoComportements;
 use App\Form\PictoComportementsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoComportementsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,10 +36,12 @@ class PictoComportementsController extends AbstractController
     /**
      * @Route("/", name="app_picto_comportements_index", methods={"GET"})
      */
-    public function index(PictoComportementsRepository $pictoComportementsRepository): Response
+    public function index(PictoComportementsRepository $pictoComportementsRepository , CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Comportements']);
         return $this->render('picto_comportements/index.html.twig', [
             'picto_comportements' => $pictoComportementsRepository->findAll(),
+            'category' => $category
         ]);
     }
 

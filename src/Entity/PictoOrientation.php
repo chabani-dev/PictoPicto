@@ -28,13 +28,13 @@ class PictoOrientation
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $filename;
 
@@ -54,154 +54,154 @@ class PictoOrientation
 
    /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $pluriel;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $prem_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $deux_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $trois_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $prem_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $deux_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $trois_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $masculin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $masculin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $feminin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $feminin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $prem_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $deux_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $trois_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $prem_pers_plur_futur;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $deux_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $trois_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $prem_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $deux_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $trois_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $prem_pers_plur_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $deux_pers_plur_passe;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $trois_pers_plur_passe;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="pictoActions")
      * @ORM\JoinColumn(nullable=true)
-     * @Groups("pictoorientation")
+     * @Groups("pictoOrientation")
      */
     private $pictograms;
 

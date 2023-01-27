@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\PictoEmotionsRepository;
+use App\Repository\pictoEmotionsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -22,19 +22,19 @@ class PictoEmotions
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $filename;
 
@@ -54,154 +54,154 @@ class PictoEmotions
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $pluriel;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $prem_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $deux_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $trois_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $prem_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $deux_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $trois_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $masculin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $masculin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $feminin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $feminin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $prem_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $deux_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $trois_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $prem_pers_plur_futur;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $deux_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $trois_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $prem_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $deux_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $trois_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $prem_pers_plur_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $deux_pers_plur_passe;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $trois_pers_plur_passe;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="pictoEmotions")
      * @ORM\JoinColumn(nullable=true)
-     * @Groups("pictoemotions")
+     * @Groups("pictoEmotions")
      */
     private $pictograms;
 

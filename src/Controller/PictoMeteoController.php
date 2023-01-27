@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoMeteo;
 use App\Form\PictoMeteoType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoMeteoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,13 @@ class PictoMeteoController extends AbstractController
     /**
      * @Route("/", name="app_picto_meteo_index", methods={"GET"})
      */
-    public function index(PictoMeteoRepository $pictoMeteoRepository): Response
+    public function index(PictoMeteoRepository $pictoMeteoRepository,CategoryRepository $category): Response
     {
+          // récupère toutes les catégories
+        $category=$this->repository->findByName(['name' => 'Meteo']);
         return $this->render('picto_meteo/index.html.twig', [
             'picto_meteos' => $pictoMeteoRepository->findAll(),
+             'category' => $category
         ]);
     }
 

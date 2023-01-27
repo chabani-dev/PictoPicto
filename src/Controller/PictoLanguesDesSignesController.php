@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoLanguesDesSignes;
 use App\Form\PictoLanguesDesSignesType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoLanguesDesSignesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoLanguesDesSignesController extends AbstractController
     /**
      * @Route("/", name="app_picto_langues_des_signes_index", methods={"GET"})
      */
-    public function index(PictoLanguesDesSignesRepository $pictoLanguesDesSignesRepository): Response
+    public function index(PictoLanguesDesSignesRepository $pictoLanguesDesSignesRepository, CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'LanguesDesSignes']);
         return $this->render('picto_langues_des_signes/index.html.twig', [
             'picto_langues_des_signes' => $pictoLanguesDesSignesRepository->findAll(),
+            'category' => $category
         ]);
     }
 

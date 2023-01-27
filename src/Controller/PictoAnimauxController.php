@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoAnimaux;
 use App\Form\PictoAnimauxType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoAnimauxRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,10 +34,12 @@ class PictoAnimauxController extends AbstractController
     /**
      * @Route("/", name="app_picto_animaux_index", methods={"GET"})
      */
-    public function index(PictoAnimauxRepository $pictoAnimauxRepository): Response
+    public function index(PictoAnimauxRepository $pictoAnimauxRepository ,CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Animaux']);
         return $this->render('picto_animaux/index.html.twig', [
             'picto_animauxes' => $pictoAnimauxRepository->findAll(),
+            'category' => $category
         ]);
     }
 

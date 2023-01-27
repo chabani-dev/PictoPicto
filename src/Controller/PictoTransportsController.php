@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoTransports;
 use App\Form\PictoTransportsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoTransportsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoTransportsController extends AbstractController
     /**
      * @Route("/", name="app_picto_transports_index", methods={"GET"})
      */
-    public function index(PictoTransportsRepository $pictoTransportsRepository): Response
+    public function index(PictoTransportsRepository $pictoTransportsRepository,CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Transports']);
         return $this->render('picto_transports/index.html.twig', [
             'picto_transports' => $pictoTransportsRepository->findAll(),
+           'category' => $category
         ]);
     }
 

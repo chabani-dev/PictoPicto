@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoSujets;
 use App\Form\PictoSujetsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoSujetsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,10 +37,12 @@ class PictoSujetsController extends AbstractController
     /**
      * @Route("/", name="app_picto_sujets_index", methods={"GET"})
      */
-    public function index(PictoSujetsRepository $pictoSujetsRepository): Response
+    public function index(PictoSujetsRepository $pictoSujetsRepository,CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Scolarite']);
         return $this->render('picto_sujets/index.html.twig', [
             'picto_sujets' => $pictoSujetsRepository->findAll(),
+            'category' => $category
         ]);
     }
 

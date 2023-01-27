@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\PictoObjets;
 use App\Entity\SubCategory;
 use App\Form\PictoObjetsType;
+use App\Repository\CategoryRepository;
+use App\Repository\SubCategoryRepository;
 use App\Repository\PictoObjetsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,10 +37,17 @@ class PictoObjetsController extends AbstractController
     /**
      * @Route("/", name="app_picto_objets_index", methods={"GET"})
      */
-    public function index(PictoObjetsRepository $pictoObjetsRepository): Response
+    public function index(PictoObjetsRepository $pictoObjetsRepository,CategoryRepository $category,SubCategoryRepository $subRepository): Response
     {
+         // récupère toutes les catégories
+        $category=$this->repository->findByName(['name' => 'Objets']);
+        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
         return $this->render('picto_objets/index.html.twig', [
             'picto_objets' => $pictoObjetsRepository->findAll(),
+            'category' => $category,
+            'subcategories' => $subcategories,
+
+            // 'subcategories' => $subRepository->findBy(['category_id' => 17]),
         ]);
     }
 

@@ -46,17 +46,27 @@ async function getData(url) {
 //   }
 // }
 
-async function getData(url) {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      const data = await response.json();
-      parcoursJSON(data);
-    } else {
-      console.error(`Error ${response.status}: ${response.statusText}`);
-    }
-  } catch (error) {
-    console.error(error);
+// async function getData(url) {
+//   try {
+//     const response = await fetch(url);
+//     if (response.ok) {
+//       const data = await response.json();
+//       parcoursJSON(data);
+//     } else {
+//       console.error(`Error ${response.status}: ${response.statusText}`);
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+function getData1(urls) {
+  for (var i = 0; i < urls.length; i++) {
+    myRequest = new XMLHttpRequest();
+    myRequest.onreadystatechange = getResponse;
+    myRequest.open("GET", urls[i]);
+    myRequest.setRequestHeader("content-type", "application-json");
+    myRequest.send();
   }
 }
 
@@ -229,6 +239,7 @@ function parcoursJSON(jsonObj) {
   //   speech.lang = "fr-FR"; // Langue
   //   speechSynthesis.speak(speech);
   //   // Appelle l'API des pictogrammes reliés à la catégorie
+  //   getData1(["/api/get/pictoobjets", "/api/get/pictoactions"]);
   //   getData1("/api/get/pictogram", "/api/get/subcategory");
   //   getCategorie(categorie);
   // });

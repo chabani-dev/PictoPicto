@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoSecuriteRoutiere;
 use App\Form\PictoSecuriteRoutiereType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoSecuriteRoutiereRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoSecuriteRoutiereController extends AbstractController
     /**
      * @Route("/", name="app_picto_securite_routiere_index", methods={"GET"})
      */
-    public function index(PictoSecuriteRoutiereRepository $pictoSecuriteRoutiereRepository): Response
+    public function index(PictoSecuriteRoutiereRepository $pictoSecuriteRoutiereRepository,CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'SecuriteRoutiere']);
         return $this->render('picto_securite_routiere/index.html.twig', [
             'picto_securite_routieres' => $pictoSecuriteRoutiereRepository->findAll(),
+        'category' => $category
         ]);
     }
 

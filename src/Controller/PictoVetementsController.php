@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoVetements;
 use App\Form\PictoVetementsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoVetementsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,13 @@ class PictoVetementsController extends AbstractController
     /**
      * @Route("/", name="app_picto_vetements_index", methods={"GET"})
      */
-    public function index(PictoVetementsRepository $pictoVetementsRepository): Response
+    public function index(PictoVetementsRepository $pictoVetementsRepository,CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Vetements']);
         return $this->render('picto_vetements/index.html.twig', [
             'picto_vetements' => $pictoVetementsRepository->findAll(),
+
+            'category' => $category
         ]);
     }
 

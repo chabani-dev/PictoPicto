@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoJouet;
 use App\Form\PictoJouetType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoJouetRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoJouetController extends AbstractController
     /**
      * @Route("/", name="app_picto_jouet_index", methods={"GET"})
      */
-    public function index(PictoJouetRepository $pictoJouetRepository): Response
+    public function index(PictoJouetRepository $pictoJouetRepository, CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Jouet']);
         return $this->render('picto_jouet/index.html.twig', [
             'picto_jouets' => $pictoJouetRepository->findAll(),
+             'category' => $category
         ]);
     }
 

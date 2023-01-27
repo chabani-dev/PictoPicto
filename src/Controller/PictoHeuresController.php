@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoHeures;
 use App\Form\PictoHeuresType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoHeuresRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoHeuresController extends AbstractController
     /**
      * @Route("/", name="app_picto_heures_index", methods={"GET"})
      */
-    public function index(PictoHeuresRepository $pictoHeuresRepository): Response
+    public function index(PictoHeuresRepository $pictoHeuresRepository, CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Heures']);
         return $this->render('picto_heures/index.html.twig', [
             'picto_heures' => $pictoHeuresRepository->findAll(),
+            'category' => $category
         ]);
     }
 

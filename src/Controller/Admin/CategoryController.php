@@ -61,8 +61,12 @@ Class CategoryController extends AbstractController
                 }
             }
         } else {
-            $categories = $this->repository->findAll();// récupère toutes les catégories
-            $pict = $this->em->getRepository(Pictogram::class)->findAll();// récupère tous les picto
+            // récupère toutes les catégories
+            $categories = $this->repository->findAll();
+                 // récupère tous les picto
+                 
+            $pict = $this->em->getRepository(Pictogram::class)->findAll();
+       
             $subcategories = $this->em->getRepository(SubCategory::class)->findAll();// récupère tous les sous-catégories
         }
 

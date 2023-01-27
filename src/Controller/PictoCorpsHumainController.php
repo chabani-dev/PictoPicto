@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoCorpsHumain;
 use App\Form\PictoCorpsHumainType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoCorpsHumainRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoCorpsHumainController extends AbstractController
     /**
      * @Route("/", name="app_picto_corps_humain_index", methods={"GET"})
      */
-    public function index(PictoCorpsHumainRepository $pictoCorpsHumainRepository): Response
+    public function index(PictoCorpsHumainRepository $pictoCorpsHumainRepository, CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'CorpsHumain']);
         return $this->render('picto_corps_humain/index.html.twig', [
             'picto_corps_humains' => $pictoCorpsHumainRepository->findAll(),
+            'category' => $category
         ]);
     }
 

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoCouverts;
 use App\Form\PictoCouvertsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoCouvertsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoCouvertsController extends AbstractController
     /**
      * @Route("/", name="app_picto_couverts_index", methods={"GET"})
      */
-    public function index(PictoCouvertsRepository $pictoCouvertsRepository): Response
+    public function index(PictoCouvertsRepository $pictoCouvertsRepository, CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Couverts']);
         return $this->render('picto_couverts/index.html.twig', [
             'picto_couverts' => $pictoCouvertsRepository->findAll(),
+            'category' => $category
         ]);
     }
 

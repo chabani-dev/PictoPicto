@@ -43,7 +43,8 @@ class PictoActionsController extends AbstractController
     public function index(PictoActionsRepository $pictoActionsRepository ,CategoryRepository $category): Response
 
     {
-        $category=$this->repository->find(3);
+        //pour récuperer la catégorie qui est lié en pictogram
+       $category=$this->repository->findByName(['name' => 'Actions']);
         return $this->render('picto_actions/index.html.twig', [
             'picto_actions' => $pictoActionsRepository->findAll(),
             'category' => $category

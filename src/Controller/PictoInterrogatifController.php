@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoInterrogatif;
 use App\Form\PictoInterrogatifType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoInterrogatifRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoInterrogatifController extends AbstractController
     /**
      * @Route("/", name="app_picto_interrogatif_index", methods={"GET"})
      */
-    public function index(PictoInterrogatifRepository $pictoInterrogatifRepository): Response
+    public function index(PictoInterrogatifRepository $pictoInterrogatifRepository, CategoryRepository  $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Interrogatif']);
         return $this->render('picto_interrogatif/index.html.twig', [
             'picto_interrogatifs' => $pictoInterrogatifRepository->findAll(),
+             'category' => $category
         ]);
     }
 

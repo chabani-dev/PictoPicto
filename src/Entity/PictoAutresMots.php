@@ -22,19 +22,19 @@ class PictoAutresMots
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $filename;
 
@@ -54,154 +54,154 @@ class PictoAutresMots
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $pluriel;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $prem_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $deux_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $trois_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $prem_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $deux_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $trois_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $masculin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $masculin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $feminin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $feminin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $prem_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $deux_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $trois_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $prem_pers_plur_futur;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $deux_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $trois_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $prem_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $deux_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $trois_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $prem_pers_plur_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $deux_pers_plur_passe;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $trois_pers_plur_passe;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="pictoAutresMots")
      * @ORM\JoinColumn(nullable=true)
-     * @Groups("pictoautresmots")
+     * @Groups("pictoAutresMots")
      */
     private $pictograms;
 

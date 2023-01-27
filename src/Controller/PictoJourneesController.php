@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoJournees;
 use App\Form\PictoJourneesType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoJourneesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoJourneesController extends AbstractController
     /**
      * @Route("/", name="app_picto_journees_index", methods={"GET"})
      */
-    public function index(PictoJourneesRepository $pictoJourneesRepository): Response
+    public function index(PictoJourneesRepository $pictoJourneesRepository, CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Journees']);
         return $this->render('picto_journees/index.html.twig', [
             'picto_journees' => $pictoJourneesRepository->findAll(),
+            'category' => $category
         ]);
     }
 

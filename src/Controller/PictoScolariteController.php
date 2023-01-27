@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoScolarite;
 use App\Form\PictoScolariteType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoScolariteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoScolariteController extends AbstractController
     /**
      * @Route("/", name="app_picto_scolarite_index", methods={"GET"})
      */
-    public function index(PictoScolariteRepository $pictoScolariteRepository): Response
+    public function index(PictoScolariteRepository $pictoScolariteRepository,CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Scolarite']);
         return $this->render('picto_scolarite/index.html.twig', [
             'picto_scolarites' => $pictoScolariteRepository->findAll(),
+            'category' => $category
         ]);
     }
 

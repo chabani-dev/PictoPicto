@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoBoissons;
 use App\Form\PictoBoissonsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoBoissonsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoBoissonsController extends AbstractController
     /**
      * @Route("/", name="app_picto_boissons_index", methods={"GET"})
      */
-    public function index(PictoBoissonsRepository $pictoBoissonsRepository): Response
+    public function index(PictoBoissonsRepository $pictoBoissonsRepository,CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Boissons']);
         return $this->render('picto_boissons/index.html.twig', [
             'picto_boissons' => $pictoBoissonsRepository->findAll(),
+            'category' => $category
         ]);
     }
 

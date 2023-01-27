@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\PictoLieux;
 use App\Form\PictoLieuxType;
 use App\Entity\SubCategory;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoLieuxRepository;
 use App\Repository\SubCategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -41,14 +42,19 @@ class PictoLieuxController extends AbstractController
     /**
      * @Route("/", name="app_picto_lieux_index", methods={"GET"})
      */
-    public function index(SubCategoryRepository $subRepository,PictoLieuxRepository $pictoLieuxRepository): Response
+    public function index(SubCategoryRepository $subRepository,PictoLieuxRepository $pictoLieuxRepository, CategoryRepository $category): Response
     
     {
-        $categories = $this->repository->findAll();// récupère toutes les catégories
+                // récupère toutes les catégories
+         $category=$this->repository->findByName(['name' => 'Lieux']);
+
+        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+       // $categories = $this->repository->findAll();
+
         return $this->render('picto_lieux/index.html.twig', [
             'picto_lieuxes' => $pictoLieuxRepository->findAll(),
-            'subcategories' => $subRepository->findBy(['category_id' => 14]),
-              'categories'=> $categories,
+        'category' => $category,
+        'subcategories' => $subcategories,
         ]);
     }
 

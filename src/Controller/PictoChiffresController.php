@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoChiffres;
 use App\Form\PictoChiffresType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoChiffresRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoChiffresController extends AbstractController
     /**
      * @Route("/", name="app_picto_chiffres_index", methods={"GET"})
      */
-    public function index(PictoChiffresRepository $pictoChiffresRepository): Response
+    public function index(PictoChiffresRepository $pictoChiffresRepository, CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Chiffres']);
         return $this->render('picto_chiffres/index.html.twig', [
             'picto_chiffres' => $pictoChiffresRepository->findAll(),
+            'category' => $category
         ]);
     }
 

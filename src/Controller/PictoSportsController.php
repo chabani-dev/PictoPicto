@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoSports;
 use App\Form\PictoSportsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoSportsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,13 @@ class PictoSportsController extends AbstractController
     /**
      * @Route("/", name="app_picto_sports_index", methods={"GET"})
      */
-    public function index(PictoSportsRepository $pictoSportsRepository): Response
+    public function index(PictoSportsRepository $pictoSportsRepository,CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Sports']);
         return $this->render('picto_sports/index.html.twig', [
             'picto_sports' => $pictoSportsRepository->findAll(),
+
+            'category' => $category
         ]);
     }
 

@@ -19,7 +19,7 @@ class ApiGetPictoAnimauxController extends AbstractController
     public function index(PictoAnimauxRepository $PictoAnimauxRepository)
     {
         //récupère toutes les catégories et retourne une réponse Json
-        return  $this->json($PictoAnimauxRepository->findAll(),200,[],['groups'=>'pictoanimaux']);
+        return  $this->json($PictoAnimauxRepository->findAll(),200,[],['groups'=>'pictoAnimaux']);
     }
 
 }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoCouleurs;
 use App\Form\PictoCouleursType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoCouleursRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,10 +36,12 @@ class PictoCouleursController extends AbstractController
     /**
      * @Route("/", name="app_picto_couleurs_index", methods={"GET"})
      */
-    public function index(PictoCouleursRepository $pictoCouleursRepository): Response
+    public function index(PictoCouleursRepository $pictoCouleursRepository, CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Couleurs']);
         return $this->render('picto_couleurs/index.html.twig', [
             'picto_couleurs' => $pictoCouleursRepository->findAll(),
+            'category' => $category
         ]);
     }
 

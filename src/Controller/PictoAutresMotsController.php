@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoAutresMots;
 use App\Form\PictoAutresMotsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoAutresMotsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,11 +35,14 @@ class PictoAutresMotsController extends AbstractController
     /**
      * @Route("/", name="app_picto_autres_mots_index", methods={"GET"})
      */
-    public function index(PictoAutresMotsRepository $pictoAutresMotsRepository): Response
+    public function index(PictoAutresMotsRepository $pictoAutresMotsRepository , CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'AutresMots']);
         return $this->render('picto_autres_mots/index.html.twig', [
             'picto_autres_mots' => $pictoAutresMotsRepository->findAll(),
+          'category' => $category
         ]);
+         
     }
 
     /**

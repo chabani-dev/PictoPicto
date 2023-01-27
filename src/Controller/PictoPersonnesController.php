@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\PictoPersonnes;
 use App\Form\PictoPersonnesType;
 use App\Repository\PictoPersonnesRepository;
+use App\Repository\SubCategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,10 +36,15 @@ class PictoPersonnesController extends AbstractController
     /**
      * @Route("/", name="app_picto_personnes_index", methods={"GET"})
      */
-    public function index(PictoPersonnesRepository $pictoPersonnesRepository): Response
+    public function index(PictoPersonnesRepository $pictoPersonnesRepository,SubCategoryRepository $subRepository): Response
     {
+        $category = $this->repository->findOneBy(['name' => 'Personnes']);
+        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+
         return $this->render('picto_personnes/index.html.twig', [
             'picto_personnes' => $pictoPersonnesRepository->findAll(),
+        'category' => $category,
+        'subcategories' => $subcategories,
         ]);
     }
 

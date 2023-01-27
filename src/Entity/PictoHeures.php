@@ -28,13 +28,13 @@ class PictoHeures
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $filename;
 
@@ -54,147 +54,147 @@ class PictoHeures
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $pluriel;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $prem_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $deux_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $trois_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $prem_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $deux_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $trois_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $masculin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $masculin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $feminin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $feminin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $prem_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $deux_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $trois_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $prem_pers_plur_futur;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $deux_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $trois_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $prem_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $deux_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $trois_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $prem_pers_plur_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $deux_pers_plur_passe;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictoheures")
+     * @Groups("pictoHeures")
      */
     private $trois_pers_plur_passe;
 

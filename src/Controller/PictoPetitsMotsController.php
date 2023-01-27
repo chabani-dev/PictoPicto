@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\PictoPetitsMots;
 use App\Form\PictoPetitsMotsType;
 use App\Entity\SubCategory;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoPetitsMotsRepository;
+use App\Repository\SubCategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,10 +37,16 @@ class PictoPetitsMotsController extends AbstractController
     /**
      * @Route("/", name="app_picto_petits_mots_index", methods={"GET"})
      */
-    public function index(PictoPetitsMotsRepository $pictoPetitsMotsRepository): Response
+    public function index(PictoPetitsMotsRepository $pictoPetitsMotsRepository,SubCategoryRepository $subRepository,CategoryRepository $category): Response
     {
+               // récupère toutes les catégories
+         $category=$this->repository->findByName(['name' => 'Lieux']);
+
+        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
         return $this->render('picto_petits_mots/index.html.twig', [
             'picto_petits_mots' => $pictoPetitsMotsRepository->findAll(),
+             'category' => $category,
+             'subcategories' => $subcategories,
         ]);
     }
 

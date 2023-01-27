@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoMultimedia;
 use App\Form\PictoMultimediaType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoMultimediaRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,13 @@ class PictoMultimediaController extends AbstractController
     /**
      * @Route("/", name="app_picto_multimedia_index", methods={"GET"})
      */
-    public function index(PictoMultimediaRepository $pictoMultimediaRepository): Response
+    public function index(PictoMultimediaRepository $pictoMultimediaRepository,CategoryRepository $category): Response
     {
+          // récupère toutes les catégories
+        $category=$this->repository->findByName(['name' => 'Multimedia']);
         return $this->render('picto_multimedia/index.html.twig', [
             'picto_multimedia' => $pictoMultimediaRepository->findAll(),
+            'category' => $category
         ]);
     }
 

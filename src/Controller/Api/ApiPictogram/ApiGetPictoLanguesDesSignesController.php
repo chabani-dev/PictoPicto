@@ -13,13 +13,13 @@ class ApiGetPictoLanguesDesSignesController extends AbstractController
     /**
      * Serialiser et normalise toutes les catégories et les envoie dans au format Json
      * @param PictoLanguesDesSignesRepository $PictoLanguesDesSignesRepository
-     * @Route("/api/get/PictoLanguesDesSignes", name="api_get_index_LanguesDesSignes", methods={"GET"})
+     * @Route("/api/get/pictoLanguesDesSignes", name="api_get_index_LanguesDesSignes", methods={"GET"})
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function index(PictoLanguesDesSignesRepository $PictoLanguesDesSignesRepository)
     {
         //récupère toutes les catégories et retourne une réponse Json
-        return  $this->json($PictoLanguesDesSignesRepository->findAll(),200,[],['groups'=>'pictolanguesdesSignes']);
+        return  $this->json($PictoLanguesDesSignesRepository->findAll(),200,[],['groups'=>'pictoLanguesDesSignes']);
     }
 
 }

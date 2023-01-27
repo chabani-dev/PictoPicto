@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoOrientation;
 use App\Form\PictoOrientationType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoOrientationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoOrientationController extends AbstractController
     /**
      * @Route("/", name="app_picto_orientation_index", methods={"GET"})
      */
-    public function index(PictoOrientationRepository $pictoOrientationRepository): Response
+    public function index(PictoOrientationRepository $pictoOrientationRepository,CategoryRepository $category): Response
     {
+          $category=$this->repository->findByName(['name' => 'Orientation']);
         return $this->render('picto_orientation/index.html.twig', [
             'picto_orientations' => $pictoOrientationRepository->findAll(),
+             'category' => $category
         ]);
     }
 

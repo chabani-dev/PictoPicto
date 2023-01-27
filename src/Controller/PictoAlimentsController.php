@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Category;
 use App\Entity\PictoAliments;
 use App\Form\PictoAlimentsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoAlimentsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,10 +35,12 @@ class PictoAlimentsController extends AbstractController
     /**
      * @Route("/", name="app_picto_aliments_index", methods={"GET"})
      */
-    public function index(PictoAlimentsRepository $pictoAlimentsRepository): Response
+    public function index(PictoAlimentsRepository $pictoAlimentsRepository,CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Aliments']);
         return $this->render('picto_aliments/index.html.twig', [
             'picto_aliments' => $pictoAlimentsRepository->findAll(),
+            'category' => $category
         ]);
     }
 

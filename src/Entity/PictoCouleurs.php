@@ -28,13 +28,13 @@ class PictoCouleurs
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $filename;
 
@@ -54,147 +54,147 @@ class PictoCouleurs
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $pluriel;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $prem_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $deux_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $trois_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $prem_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $deux_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $trois_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $masculin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $masculin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $feminin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $feminin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $prem_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $deux_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $trois_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $prem_pers_plur_futur;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $deux_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $trois_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $prem_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $deux_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $trois_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $prem_pers_plur_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $deux_pers_plur_passe;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $trois_pers_plur_passe;
     
@@ -202,7 +202,7 @@ class PictoCouleurs
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="pictoCouleurs")
      * @ORM\JoinColumn(nullable=true)
-     * @Groups("pictocouleurs")
+     * @Groups("pictoCouleurs")
      */
     private $pictograms;
 

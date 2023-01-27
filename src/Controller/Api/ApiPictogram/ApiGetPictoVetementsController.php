@@ -13,13 +13,13 @@ class ApiGetPictoVetementsController extends AbstractController
     /**
      * Serialiser et normalise toutes les catégories et les envoie dans au format Json
      * @param PictoVetementsRepository $PictoVetementsRepository
-     * @Route("/api/get/PictoVetements", name="api_get_index_Vetements", methods={"GET"})
+     * @Route("/api/get/pictoVetements", name="api_get_index_Vetements", methods={"GET"})
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function index(PictoVetementsRepository $PictoVetementsRepository)
     {
         //récupère toutes les catégories et retourne une réponse Json
-        return  $this->json($PictoVetementsRepository->findAll(),200,[],['groups'=>'pictovetements']);
+        return  $this->json($PictoVetementsRepository->findAll(),200,[],['groups'=>'pictoVetements']);
     }
 
 }

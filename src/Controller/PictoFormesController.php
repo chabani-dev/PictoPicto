@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoFormes;
 use App\Form\PictoFormesType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoFormesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoFormesController extends AbstractController
     /**
      * @Route("/", name="app_picto_formes_index", methods={"GET"})
      */
-    public function index(PictoFormesRepository $pictoFormesRepository): Response
+    public function index(PictoFormesRepository $pictoFormesRepository ,CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Formes']);
         return $this->render('picto_formes/index.html.twig', [
             'picto_formes' => $pictoFormesRepository->findAll(),
+            'category' => $category
         ]);
     }
 

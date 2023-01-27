@@ -29,13 +29,13 @@ class PictoInterrogatif
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $filename;
 
@@ -56,147 +56,147 @@ class PictoInterrogatif
 
      /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $pluriel;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $prem_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $deux_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $trois_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $prem_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $deux_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $trois_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $masculin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $masculin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $feminin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $feminin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $prem_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $deux_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $trois_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $prem_pers_plur_futur;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $deux_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $trois_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $prem_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $deux_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $trois_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $prem_pers_plur_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $deux_pers_plur_passe;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictointerrogatif")
+     * @Groups("pictoInterrogatif")
      */
     private $trois_pers_plur_passe;
 

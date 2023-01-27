@@ -34,7 +34,7 @@ class PictoAliments
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictoaliments")
+     * @Groups("pictoAliments")
      */
     private $filename;
 
@@ -54,7 +54,7 @@ class PictoAliments
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictoaliments")
+     * @Groups("pictoAliments")
      */
     private $genre;
 

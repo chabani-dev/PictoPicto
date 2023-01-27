@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoAdjectifs;
 use App\Form\PictoAdjectifsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoAdjectifsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,10 +39,12 @@ class PictoAdjectifsController extends AbstractController
     /**
      * @Route("/", name="app_picto_adjectifs_index", methods={"GET"})
      */
-    public function index(PictoAdjectifsRepository $pictoAdjectifsRepository): Response
+    public function index(PictoAdjectifsRepository $pictoAdjectifsRepository,CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'Adjectifs']);
         return $this->render('picto_adjectifs/index.html.twig', [
             'picto_adjectifs' => $pictoAdjectifsRepository->findAll(),
+            'category' => $category
         ]);
     }
 

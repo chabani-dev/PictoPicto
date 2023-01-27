@@ -13,13 +13,13 @@ class ApiGetPictoOrientationController extends AbstractController
     /**
      * Serialiser et normalise toutes les catégories et les envoie dans au format Json
      * @param PictoOrientationRepository $PictoOrientationRepository
-     * @Route("/api/get/PictoOrientation", name="api_get_index_Orientation", methods={"GET"})
+     * @Route("/api/get/pictoOrientation", name="api_get_index_Orientation", methods={"GET"})
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function index(PictoOrientationRepository $PictoOrientationRepository)
     {
         //récupère toutes les catégories et retourne une réponse Json
-        return  $this->json($PictoOrientationRepository->findAll(),200,[],['groups'=>'pictoorientation']);
+        return  $this->json($PictoOrientationRepository->findAll(),200,[],['groups'=>'pictoOrientation']);
     }
 
 }

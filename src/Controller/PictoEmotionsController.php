@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoEmotions;
 use App\Form\PictoEmotionsType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoEmotionsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoEmotionsController extends AbstractController
     /**
      * @Route("/", name="app_picto_emotions_index", methods={"GET"})
      */
-    public function index(PictoEmotionsRepository $pictoEmotionsRepository): Response
+    public function index(PictoEmotionsRepository $pictoEmotionsRepository, CategoryRepository $category): Response
     {
+        $category=$this->repository->findByName(['name' => 'Emotions']);
         return $this->render('picto_emotions/index.html.twig', [
             'picto_emotions' => $pictoEmotionsRepository->findAll(),
+            'category' => $category
         ]);
     }
 

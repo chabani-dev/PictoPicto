@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PictoFruitsLegumes;
 use App\Form\PictoFruitsLegumesType;
+use App\Repository\CategoryRepository;
 use App\Repository\PictoFruitsLegumesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,10 +35,12 @@ class PictoFruitsLegumesController extends AbstractController
     /**
      * @Route("/", name="app_picto_fruits_legumes_index", methods={"GET"})
      */
-    public function index(PictoFruitsLegumesRepository $pictoFruitsLegumesRepository): Response
+    public function index(PictoFruitsLegumesRepository $pictoFruitsLegumesRepository,CategoryRepository $category): Response
     {
+         $category=$this->repository->findByName(['name' => 'FruitsLegumes']);
         return $this->render('picto_fruits_legumes/index.html.twig', [
             'picto_fruits_legumes' => $pictoFruitsLegumesRepository->findAll(),
+            'category' => $category
         ]);
     }
 

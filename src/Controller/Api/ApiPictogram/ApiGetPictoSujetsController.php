@@ -19,7 +19,7 @@ class ApiGetPictoSujetsController extends AbstractController
     public function index(PictoSujetsRepository $PictoSujetsRepository)
     {
         //récupère toutes les catégories et retourne une réponse Json
-        return  $this->json($PictoSujetsRepository->findAll(),200,[],['groups'=>'pictosujets']);
+        return  $this->json($PictoSujetsRepository->findAll(),200,[],['groups'=>'pictoSujets']);
     }
 
 }

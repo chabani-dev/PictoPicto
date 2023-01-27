@@ -34,7 +34,7 @@ class PictoFruitsLegumes
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $filename;
 
@@ -54,154 +54,154 @@ class PictoFruitsLegumes
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $genre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $pluriel;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $prem_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $deux_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $trois_pers_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $prem_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $deux_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $trois_pers_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $masculin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $masculin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $feminin_sing;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $feminin_plur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $prem_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $deux_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $trois_pers_sing_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $prem_pers_plur_futur;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $deux_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $trois_pers_plur_futur;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $prem_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $deux_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $trois_pers_sing_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $prem_pers_plur_passe;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $deux_pers_plur_passe;
 
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $trois_pers_plur_passe;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="pictoFruitsLegumes")
      * @ORM\JoinColumn(nullable=true)
-     * @Groups("pictofruitslegumes")
+     * @Groups("pictoFruitsLegumes")
      */
     private $pictograms;
 
