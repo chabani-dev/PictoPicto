@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/picto/objets")
+ * @Route("/objets")
  */
 class PictoObjetsController extends AbstractController
 {
@@ -39,16 +39,33 @@ class PictoObjetsController extends AbstractController
      */
     public function index(PictoObjetsRepository $pictoObjetsRepository,CategoryRepository $category,SubCategoryRepository $subRepository): Response
     {
-         // récupère toutes les catégories
-        $category=$this->repository->findByName(['name' => 'Objets']);
-        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
-        return $this->render('picto_objets/index.html.twig', [
-            'picto_objets' => $pictoObjetsRepository->findAll(),
-            'category' => $category,
-            'subcategories' => $subcategories,
 
-            // 'subcategories' => $subRepository->findBy(['category_id' => 17]),
-        ]);
+    $category = $this->repository->findBy(['name' => 'Objets']);
+if (!empty($category)) {
+    $category = $category[0];
+    $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+} else {
+    $category = null;
+    $subcategories = null;
+}
+return $this->render('picto_objets/index.html.twig', [
+    'picto_objets' => $pictoObjetsRepository->findAll(),
+    'category' => $category,
+    'subcategories' => $subcategories,
+]);
+
+    //      // récupère toutes les catégories
+    //     //$category=$this->repository->findByName(['name' => 'Objets']);
+    //     $category = $this->repository->findBy(['name' => 'Objets']);
+   
+    //     return $this->render('picto_objets/index.html.twig', [
+    //         'picto_objets' => $pictoObjetsRepository->findAll(),
+    //         'category' => $category,
+    // //$subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+    // // 'subcategories' => $subcategories,
+
+    //     'subcategories' => $subRepository->findBy(['category_id' => 17]),
+    //     ]);
     }
 
     /**
@@ -62,7 +79,7 @@ class PictoObjetsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-              $category = $form->get('pictograms')->getData();
+            $category = $form->get('pictograms')->getData();
             $subcategory = $form->get('subcategory_id')->getData();
             if ( $category  && $subcategory) {
                 $this->addFlash('echec', 'Ne peut avoir qu\'une catégorie ou une sous-catégorie');
@@ -70,12 +87,14 @@ class PictoObjetsController extends AbstractController
             } else if (!$category && !$subcategory) {
                 $this->addFlash('echec', 'Doit posséder une catégorie ou une sous-catégorie');
                 return $this->redirectToRoute('app_picto_objets_new');
+
+                
             } else {
                 $pictogram = $form->getData();
                 $this->em->persist($pictogram);
                 $this->em->flush();
                 $this->addFlash('success', 'Pictogramme créé avec succès');
-                return $this->redirectToRoute('app_picto_picto');
+                return $this->redirectToRoute('app_picto_objets_index');
             }
         }
           return $this->render('picto_objets/new.html.twig', [

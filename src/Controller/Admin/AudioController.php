@@ -32,7 +32,7 @@ class AudioController extends AbstractController
     public function spectrogram(Sentence $sentence): Response
     {
         $patientId = $this->session->get('patientId');
-        $patient = $this->entityManager->getRepository(Patient::class)->findOneById($patientId);
+        $patient = $this->entityManager->getRepository(Patient::class)->find($patientId);
         if (!$patient) {
             return $this->redirectToRoute('patient');
         }

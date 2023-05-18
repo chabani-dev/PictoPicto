@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/picto/interrogatif")
+ * @Route("/interrogatif")
  */
 class PictoInterrogatifController extends AbstractController
 {
@@ -37,6 +37,7 @@ class PictoInterrogatifController extends AbstractController
      */
     public function index(PictoInterrogatifRepository $pictoInterrogatifRepository, CategoryRepository  $category): Response
     {
+        //pour récuperer la catégorie qui sont liés en pictogram
         $category=$this->repository->findByName(['name' => 'Interrogatif']);
         return $this->render('picto_interrogatif/index.html.twig', [
             'picto_interrogatifs' => $pictoInterrogatifRepository->findAll(),
@@ -56,11 +57,7 @@ class PictoInterrogatifController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
               $category = $form->get('pictograms')->getData();
-            // $subcategory = $form->get('subcategory_id')->getData();
-            // if ( $category  && $subcategory) {
-            //     $this->addFlash('echec', 'Ne peut avoir qu\'une catégorie ou une sous-catégorie');
-            //     return $this->redirectToRoute('app_picto_interrogatif_new');
-            if (!$category ) {
+                if (!$category ) {
                 $this->addFlash('echec', 'Doit posséder une catégorie ');
                 return $this->redirectToRoute('app_picto_interrogatif_new');
             } else {

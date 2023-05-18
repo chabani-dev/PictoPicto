@@ -9,7 +9,7 @@
                   
          <!-- btn création picotgrammes -->
         <div class="pictoactions">
-                <a href="{{ path('newSubCategory') }}" class="btn btn-dark btn-sm ">Créer une sous-catégorie</a>
+                {# <a href="{{ path('newSubCategory') }}" class="btn btn-dark btn-sm ">Créer une sous-catégorie</a> #}
                 <a href="{{ path('app_picto_petits_mots_new') }}" class="btn btn-dark btn-sm">PictoPetitsMots</a>
             
         </div>
@@ -34,12 +34,13 @@
 </div>
 </div>
 
-<div id="accordion">
-        <div class="p-3 accordion-item d-flex">
+<div class="accordion">
+{% if category is null %}
+           <div class="p-3 accordion-item d-flex">
                 <img class="pictoList" src="{{ asset('images/categories/'~picto_petits_mots[0].pictograms.filename) }}" alt=""> 
                 <span class="my-auto ms-2 ">{{ picto_petits_mots[0].pictograms.name }}</span> 
-              
-        </div>   
+        {% endif %}      
+</div>   
 
 <div class="picto">
         {% for picto_petits_mot in picto_petits_mots %}

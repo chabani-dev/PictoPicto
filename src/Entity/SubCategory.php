@@ -31,21 +31,18 @@ class SubCategory
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups("subcategory")
-     * @Groups("pictogram")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("subcategory")
-     * @Groups("pictogram")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("subcategory")
-     * @Groups("pictogram")
      */
     private $filename;
 

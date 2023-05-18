@@ -183,7 +183,7 @@ function parcoursJSON(jsonObj) {
         idCategorie +
         '" class="picto categorie audioC mx-4" title="' +
         categorie +
-        '" ><img src="/images/categories/' +
+        '" ><img src="/images/pictograms/' +
         imageCategorie +
         '" alt="' +
         categorie +
@@ -194,6 +194,9 @@ function parcoursJSON(jsonObj) {
   // Au clic d'une catégorie
   $(".audioC").click(function (categorie) {
     categorie = $(this).attr("title");
+    categorieUpper = capitalizeWordsAfterSpace(categorie);
+    CategorieFreeAccent = removeAccents(categorieUpper);
+    categorieNoBlank = CategorieFreeAccent.replace(/ /g, "");
     // La synthèse vocale lit son titre
     speech.text = categorie;
     speech.pitch = 1; // 0 à 2 = Hauteur
@@ -203,47 +206,11 @@ function parcoursJSON(jsonObj) {
     speechSynthesis.speak(speech);
 
     // Appelle l'API des pictogrammes reliés à la catégorie
-
     //Cela permettra à la fonction d'accepter un tableau et
     //d'URL de parcourir le tableau en faisant une requête GET pour
     //chacune d'entre elles.
 
-    getData1([
-      "/api/get/pictoObjets",
-      "/api/get/pictoActions",
-      "/api/get/PictoAdjectifs",
-      "/api/get/pictoAliments",
-      "/api/get/PictoAnimaux",
-      "/api/get/pictoAutresMots",
-      "/api/get/pictoBoissons",
-      "/api/get/pictoChiffres",
-      "/api/get/pictoComportements",
-      "/api/get/pictoCorpsHumain",
-      "/api/get/pictoCouleurs",
-      "/api/get/pictoCouverts",
-      "/api/get/pictoEmotions",
-      "/api/get/pictoFormes",
-      "/api/get/pictoFruitsLegumes",
-      "/api/get/pictoHeures",
-      "/api/get/pictoInterrogatif",
-      "/api/get/pictoJouet",
-      "/api/get/pictoJournees",
-      "/api/get/pictoLanguesDesSignes",
-      "/api/get/pictoLieux",
-      "/api/get/pictoMeteo",
-      "/api/get/pictoMultimedia",
-      "/api/get/pictoObjets",
-      "/api/get/pictoOrientation",
-      "/api/get/pictoPersonnes",
-      "/api/get/pictoPetitsMots",
-      "/api/get/pictoScolarite",
-      "/api/get/pictoSecuriteRoutiere",
-      "/api/get/pictoSports",
-      "/api/get/pictoSujets",
-      "/api/get/pictoTransports",
-      "/api/get/pictoVetements",
-      "/api/get/subcategory",
-    ]);
+    getData1("/api/get/picto" + categorieNoBlank);
     //getData1("/api/get/pictogram", "/api/get/subcategory");
     getCategorie(categorie);
   });
@@ -252,7 +219,8 @@ function parcoursJSON(jsonObj) {
 
 /* Requête Pictogram */
 // function getData1(url, url1) {
-//   // url = api/get/pictogram  url1 = api/get/subcategory
+//   url = "/api/get/pictoActions";
+//   url1 = "/api/get/subcategory";
 //   myRequest = new XMLHttpRequest();
 //   myRequest.onreadystatechange = getResponse1;
 //   myRequest.open("GET", url);
@@ -266,14 +234,13 @@ function parcoursJSON(jsonObj) {
 // }
 //La fonction ressemble getData1 modifiée
 
-function getData1(urls) {
-  for (let i = 0; i < urls.length; i++) {
-    myRequest = new XMLHttpRequest();
-    myRequest.onreadystatechange = getResponse;
-    myRequest.open("GET", urls[i]);
-    myRequest.setRequestHeader("content-type", "application-json");
-    myRequest.send();
-  }
+function getData1(url) {
+  // for (let i = 0; i < urls.length; i++) {
+  myRequest = new XMLHttpRequest();
+  myRequest.onreadystatechange = getResponse;
+  myRequest.open("GET", url);
+  myRequest.setRequestHeader("content-type", "application-json");
+  myRequest.send();
 }
 
 /* Requête Pictogram */
@@ -451,42 +418,8 @@ $(document).on("click", ".audioSCP", function (e) {
   speech.volume = 0.5; // 0 à 1 = Volume
   speech.lang = "fr-FR"; // Langue
   speechSynthesis.speak(speech);
-  getData2([
-    "/api/get/pictoObjets",
-    "/api/get/pictoActions",
-    "/api/get/PictoAdjectifs",
-    "/api/get/pictoAliments",
-    "/api/get/PictoAnimaux",
-    "/api/get/pictoAutresMots",
-    "/api/get/pictoBoissons",
-    "/api/get/pictoChiffres",
-    "/api/get/pictoComportements",
-    "/api/get/pictoCorpsHumain",
-    "/api/get/pictoCouleurs",
-    "/api/get/pictoCouverts",
-    "/api/get/pictoEmotions",
-    "/api/get/pictoFormes",
-    "/api/get/pictoFruitsLegumes",
-    "/api/get/pictoHeures",
-    "/api/get/pictoInterrogatif",
-    "/api/get/pictoJouet",
-    "/api/get/pictoJournees",
-    "/api/get/pictoLanguesDesSignes",
-    "/api/get/pictoLieux",
-    "/api/get/pictoMeteo",
-    "/api/get/pictoMultimedia",
-    "/api/get/pictoObjets",
-    "/api/get/pictoOrientation",
-    "/api/get/pictoPersonnes",
-    "/api/get/pictoPetitsMots",
-    "/api/get/pictoScolarite",
-    "/api/get/pictoSecuriteRoutiere",
-    "/api/get/pictoSports",
-    "/api/get/pictoSujets",
-    "/api/get/pictoTransports",
-    "/api/get/pictoVetements",
-  ]);
-  // getData2("/api/get/pictogram");
+
+  getData2("/api/get/picto" + subcategorie);
   getSubCategorie(subcategorie);
 });
 
@@ -512,7 +445,7 @@ function getData2(url) {
   myRequest = new XMLHttpRequest();
   myRequest.onreadystatechange = getResponse2;
   myRequest.open("GET", url);
-  myRequest.setRequestHeader("content-type", "application-json");
+  myRequest.setRequestHeader("content-type", "application/json");
   myRequest.send();
 }
 /* end Requête Category */
@@ -627,13 +560,21 @@ function parcoursJSON2(jsonObj, subcategorie) {
       }
     }
   }
-  $(".audioSCP1").mousedown(function () {
-    // Lorsque la souris intervient sur un pictogramme
-    speech.text = $(this).attr("title");
-    speech.pitch = 1; // 0 à 2 = Hauteur
-    speech.rate = 1; // 0.5 à 2 = Vitesse
-    speech.volume = 0.5; // 0 à 1 = Volume
-    speech.lang = "fr-FR"; // Langue
-    speechSynthesis.speak(speech);
+  // $(".audioSCP1").mousedown(function () {
+  //   // Lorsque la souris intervient sur un pictogramme
+  //   speech.text = $(this).attr("title");
+  //   speech.pitch = 1; // 0 à 2 = Hauteur
+  //   speech.rate = 1; // 0.5 à 2 = Vitesse
+  //   speech.volume = 0.5; // 0 à 1 = Volume
+  //   speech.lang = "fr-FR"; // Langue
+  //   speechSynthesis.speak(speech);
+  // });
+}
+function capitalizeWordsAfterSpace(str) {
+  return str.replace(/(?:^|\s)\S/g, function (a) {
+    return a.toUpperCase();
   });
+}
+function removeAccents(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }

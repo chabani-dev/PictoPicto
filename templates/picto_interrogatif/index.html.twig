@@ -7,17 +7,12 @@
     <span class="title">PictoInterrogatif, Catégories </span>
 <div class="d-flex justify-content-between">
                   
-         <!-- btn création catégories et picotgrammes -->
+         <!-- btn création catégories et pictogrammes -->
         <div class="pictoactions">
                <a href="{{ path('app_picto_interrogatif_new') }}" class="btn btn-dark btn-sm">PictoInterrogatif</a>
-            
+                <a href="{{ path('newCategory') }}" class="btn btn-dark btn-sm ">Créer une catégorie</a>
         </div>
 
-<!-- btn pour retour à la page PictiPcto qui regroupe toutes les pictotgrammes -->
-        {# <div class="PictoPicto">
-         <a href="{{ path('app_picto_picto') }}" class="btn btn-dark btn-sm">retour liste PictoPicto</a>
-         </div>  #}
-         
 </div>
 <div class="container-fluid mt-3 p-4 background">
         <div class="row">
@@ -33,27 +28,20 @@
 </div>
 </div>
 </div>
-
-<div id="accordion">
+<div class ="accordion">
         <div class="p-3 accordion-item d-flex">
                 <img class="pictoList" src="{{ asset('images/categories/'~picto_interrogatifs[1].pictograms.filename) }}" alt=""> 
                 <span class="my-auto ms-2 ">{{ picto_interrogatifs[1].pictograms.name }}</span> 
-              
-            </div>       
-
+        </div>       
 <div class="picto">
-        {% for picto_interrogatif in picto_interrogatifs %}
-                   <div class="ms-md-3">
-                     <img class="pictoList"src="{{ asset('images/pictograms/') }}{{  picto_interrogatif.filename }}" alt=""> 
-                    <figcaption class="picText">{{  picto_interrogatif.name }} </figcaption>
-                            
-                    </div>
-                   
-        {% endfor %}
-
+    {% for picto_interrogatif in picto_interrogatifs %}
+            <div class="ms-md-3">
+            <img class="pictoList"src="{{ asset('images/pictograms/') }}{{  picto_interrogatif.filename }}" alt=""> 
+            <figcaption class="picText">{{  picto_interrogatif.name }} </figcaption>
+        </div>
+    {% endfor %}
 </div>
 </div> 
-     
 {% endblock %}
      
  

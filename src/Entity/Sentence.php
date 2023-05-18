@@ -52,11 +52,6 @@ class Sentence
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity=Pictogram::class, inversedBy="sentences")
-     */
-    private $pictos;
-
-    /**
      * @ORM\ManyToMany(targetEntity=PictoAdjectifs::class, mappedBy="sentences")
      */
     private $pictoAdjectifs;
@@ -294,29 +289,7 @@ class Sentence
         return $this;
     }
 
-    /**
-     * @return Collection|Pictogram[]
-     */
-    public function getPictos(): Collection
-    {
-        return $this->pictos;
-    }
-
-    public function addPicto(Pictogram $picto): self
-    {
-        if (!$this->pictos->contains($picto)) {
-            $this->pictos[] = $picto;
-        }
-
-        return $this;
-    }
-
-    public function removePicto(Pictogram $picto): self
-    {
-        $this->pictos->removeElement($picto);
-
-        return $this;
-    }
+    
 /**
      * Get the value of patient
      */ 

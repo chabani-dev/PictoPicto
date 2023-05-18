@@ -4,7 +4,7 @@ namespace App\Controller\User;
 
 use App\Entity\Patient;
 use App\Repository\CategoryRepository;
-use App\Repository\PictogramRepository;
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

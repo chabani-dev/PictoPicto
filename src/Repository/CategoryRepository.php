@@ -65,14 +65,14 @@ class CategoryRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findOneByPictogram($pictogram): ?Category
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $pictogram)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
+    // public function findOneByPictogram($pictogram): ?Category
+    // {
+    //     return $this->createQueryBuilder('c')
+    //         ->andWhere('c.exampleField = :val')
+    //         ->setParameter('val', $pictogram)
+    //         ->getQuery()
+    //         ->getOneOrNullResult()
+    //     ;
+    // }
 
 }

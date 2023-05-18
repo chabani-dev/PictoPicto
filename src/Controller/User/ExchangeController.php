@@ -4,7 +4,7 @@ namespace App\Controller\User;
 
 use App\Entity\Patient;
 use App\Repository\CategoryRepository;
-use App\Repository\PictogramRepository;
+use App\Repository\PictoActionsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +22,7 @@ class ExchangeController extends AbstractController
     /**
      * @Route("/admin/user/echange/{id}", name="exchange")
      */
-    public function index($id, CategoryRepository $repository, PictogramRepository $pictogramRepository): Response
+    public function index($id, CategoryRepository $repository, PictoActionsRepository $pictogramRepository): Response
     {
         $patient = $this->entityManager->getRepository(Patient::class)->findOneById($id);
         if (!$patient) {

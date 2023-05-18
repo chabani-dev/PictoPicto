@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/picto/lieux")
+ * @Route("/lieux")
  */
 class PictoLieuxController extends AbstractController
 {
@@ -46,16 +46,31 @@ class PictoLieuxController extends AbstractController
     
     {
                 // récupère toutes les catégories
-         $category=$this->repository->findByName(['name' => 'Lieux']);
 
-        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
-       // $categories = $this->repository->findAll();
+                 $category = $this->repository->findBy(['name' => 'Objets']);
+if (!empty($category)) {
+    $category = $category[0];
+    $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+} else {
+    $category = null;
+    $subcategories = null;
+}
+return $this->render('picto_lieux/index.html.twig', [
+    'picto_objets' => $pictoLieuxRepository->findAll(),
+    'category' => $category,
+    'subcategories' => $subcategories,
+    ]);
 
-        return $this->render('picto_lieux/index.html.twig', [
-            'picto_lieuxes' => $pictoLieuxRepository->findAll(),
-        'category' => $category,
-        'subcategories' => $subcategories,
-        ]);
+    //      $category=$this->repository->findByName(['name' => 'Lieux']);
+
+    //     $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+    //    // $categories = $this->repository->findAll();
+
+    //     return $this->render('picto_lieux/index.html.twig', [
+    //         'picto_lieuxes' => $pictoLieuxRepository->findAll(),
+    //     'category' => $category,
+    //     'subcategories' => $subcategories,
+    //     ]);
     }
 
     /**

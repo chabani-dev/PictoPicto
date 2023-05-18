@@ -9,7 +9,7 @@
                   
          <!-- btn création picotgrammes -->
         <div class="pictoactions">
-                <a href="{{ path('app_picto_personnes_new') }}" class="btn btn-dark btn-sm">PictoPersonnes</a>
+<a href="{{ path('app_picto_personnes_new') }}" class="btn btn-dark btn-sm">PictoPersonnes</a>
             
         </div>
 <!-- btn pour retour à la page PictiPcto qui regroupe toutes les pictotgrammes -->
@@ -34,14 +34,12 @@
 </div>
 
 <div id="accordion">
+
     <div class="p-3 accordion-item d-flex">
             <img class="pictoList" src="{{ asset('images/categories/'~picto_personnes[0].pictograms.filename) }}" alt=""> 
             <span class="my-auto ms-2 ">{{ picto_personnes[0].pictograms.name }}</span> 
-            
-</div>    
 
-<div class="picto">
-       {% for picto_personne in picto_personnes %}
+      {% for picto_personne in picto_personnes %}
                 <div class="ms-md-3">
                     <img class="pictoList"src="{{ asset('images/pictograms/') }}{{   picto_personne.filename }}" alt=""> 
                 <figcaption class="picText">{{  picto_personne.name }} </figcaption>

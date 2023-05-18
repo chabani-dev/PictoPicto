@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Pictogram;
+//use App\Entity\Pictogram;
 use App\Entity\Category;
 use App\Entity\SubCategory;
 use App\Entity\Therapist;

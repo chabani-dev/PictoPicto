@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/picto/journees")
+ * @Route("/journees")
  */
 class PictoJourneesController extends AbstractController
 {

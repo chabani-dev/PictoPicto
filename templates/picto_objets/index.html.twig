@@ -7,18 +7,13 @@
     <span class="title">PictoObjets, Catégories </span>
 <div class="d-flex justify-content-between">
                   
-         <!-- btn création catégories et picotgrammes -->
-        <div class="pictoactions">
-         <a href="{{ path('newSubCategory') }}" class="btn btn-dark btn-sm ">Créer une sous-catégorie</a>
-               <a href="{{ path('app_picto_objets_new') }}" class="btn btn-dark btn-sm">PictoObjets</a>
-            
+         <!-- btn création picoObjets -->
+        <div class="pictosactions">
+          <a href="{{ path('app_picto_objets_new') }}" class="btn btn-dark
+                   btn-sm">PictoObjets</a>
         </div>
-<!-- btn pour retour à la page PictiPcto qui regroupe toutes les pictotgrammes -->
-        {# <div class="PictoPicto">
-         <a href="{{ path('app_picto_picto') }}" class="btn btn-dark btn-sm">retour liste PictoPicto</a>
-         </div>  #}
-         
 </div>
+            <!-- message  -->
 <div class="container-fluid mt-3 p-4 background">
         <div class="row">
             <div class="col-12">
@@ -33,27 +28,50 @@
 </div>
 </div>
 </div>
-
-<div id="accordion">
+  <!-- Affichage catégories et pictoObjets  -->
+<div class="accordion">
     <div class="p-3 accordion-item d-flex">
-            <img class="pictoList" src="{{ asset('images/categories/'~picto_objets[0].pictograms.filename) }}" alt=""> 
-            <span class="my-auto ms-2 ">{{ picto_objets[0].pictograms.name }}</span> 
-            
-</div>  
-
+    <img class="pictoList" src="{{ asset('images/categories/'~picto_objets[0].pictograms.filename) }}" alt=""> 
+    <span class="my-auto ms-2 ">{{ picto_objets[0].pictograms.name }}</span>
+    </div>  
 <div class="picto">
         {% for picto_objet in picto_objets %}
-                <div class="ms-md-3">
-                    <img class="pictoList"src="{{ asset('images/pictograms/') }}{{  picto_objet.filename }}" alt=""> 
+            <div class="ms-md-3">
+            <img class="pictoList"src="{{ asset('images/pictograms/') }}{{  picto_objet.filename }}" alt=""> 
                     <figcaption class="picText">{{ picto_objet.name }} </figcaption>
                         
-                </div>
+            </div>
                    
         {% endfor %}
 
-    </div>  
-</div>
-     
+  <!-- Affichage sous_catégories picobjets-->
+    {% for subcategory in subcategories %}
+    <div class="accordion-item mb-3">
+        <h2 class="accordion-header" id="heading{{subcategory.id}}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{subcategory.id}}" aria-expanded="false" aria-controls="collapse{{subcategory.id}}">
+             <img class="pictoList" src="{{ asset('images/sous-categories/'~subcategory.filename)}}" alt="">
+                <span class="my-auto ms-2">{{ subcategory.name }}</span>
+            </button>
+        </h2>
+        <div id="collapse{{subcategory.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{subcategory.id}}" data-bs-parent="#accordionExample">  
+        {% endfor %}
+    </div>
+
+
+  {# {% for subcategory in subcategories %}
+       
+    <h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{subcategory.id}}" aria-expanded="false" aria-controls="collapse{{subcategory.id}}">
+    <img class="pictoList" src="{{ asset('images/sous-categories/'~subcategory.filename)}}" alt="">
+    <span class="my-auto ms-2">{{ subcategory.name }}</span>
+    </button>
+    </h2>
+    <div id="collapse{{subcategory.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{subcategory.id}}" data-bs-parent="#accordionExample">  
+    {% endfor %} </div>
+
+</div>  
+</div> #}
+   </div>  
 {% endblock %}
         
        

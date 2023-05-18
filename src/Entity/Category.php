@@ -26,7 +26,6 @@ class Category
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups("category")
-     * @Groups("pictogram")
      * @Groups("subcategory")
      
      */
@@ -35,7 +34,6 @@ class Category
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("category")
-     * @Groups("pictogram")
      * @Groups("subcategory")
      
      */
@@ -44,7 +42,6 @@ class Category
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups("category")
-     * @Groups("pictogram")
      * @Groups("subcategory")
      */
     private $filename;

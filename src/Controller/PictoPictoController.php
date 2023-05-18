@@ -17,7 +17,7 @@ use App\Repository\PictoCouvertsRepository;
 use App\Repository\PictoEmotionsRepository;
 use App\Repository\PictoFormesRepository;
 use App\Repository\PictoFruitsLegumesRepository;
-use App\Repository\PictogramRepository;
+
 use App\Repository\PictoHeuresRepository;
 use App\Repository\PictoInterrogatifRepository;
 use App\Repository\PictoJouetRepository;

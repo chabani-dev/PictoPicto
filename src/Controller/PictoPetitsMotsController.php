@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/picto/petits/mots")
+ * @Route("/petits/mots")
  */
 class PictoPetitsMotsController extends AbstractController
 {
@@ -40,14 +40,28 @@ class PictoPetitsMotsController extends AbstractController
     public function index(PictoPetitsMotsRepository $pictoPetitsMotsRepository,SubCategoryRepository $subRepository,CategoryRepository $category): Response
     {
                // récupère toutes les catégories
-         $category=$this->repository->findByName(['name' => 'Lieux']);
 
-        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
-        return $this->render('picto_petits_mots/index.html.twig', [
-            'picto_petits_mots' => $pictoPetitsMotsRepository->findAll(),
-             'category' => $category,
-             'subcategories' => $subcategories,
-        ]);
+             $category = $this->repository->findBy(['name' => 'Objets']);
+if (!empty($category)) {
+    $category = $category[0];
+    $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+} else {
+    $category = null;
+    $subcategories = null;
+}
+return $this->render('picto_petits_mots/index.html.twig', [
+    'picto_objets' => $pictoPetitsMotsRepository->findAll(),
+    'category' => $category,
+    'subcategories' => $subcategories,
+    ]);
+        //  $category=$this->repository->findByName(['name' => 'Lieux']);
+
+        // $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+        // return $this->render('picto_petits_mots/index.html.twig', [
+        //     'picto_petits_mots' => $pictoPetitsMotsRepository->findAll(),
+        //      'category' => $category,
+        //      'subcategories' => $subcategories,
+        // ]);
     }
 
     /**

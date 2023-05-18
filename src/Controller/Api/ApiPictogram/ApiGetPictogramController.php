@@ -4,7 +4,7 @@ namespace App\Controller\Api\ApiPictogram;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\PictogramRepository;
+
 
 
 class ApiGetPictogramController extends AbstractController

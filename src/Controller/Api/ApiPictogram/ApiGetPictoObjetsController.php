@@ -9,7 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ApiGetPictoObjetsController extends AbstractController
 {
-
     /**
      * Serialiser et normalise toutes les catégories et les envoie dans au format Json
      * @param PictoObjetsRepository $PictoObjetsRepository

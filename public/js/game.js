@@ -12,7 +12,7 @@ class AudioController {
     this.victorySound = new Audio(
       "https://raw.githubusercontent.com/WebDevSimplified/Mix-Or-Match/master/Assets/Audio/victory.wav"
     );
-    this.gameOverSound = new Audio("Assets/Audio/gameOver.wav");
+    this.gameOverSound = new Audio("");
     this.bgMusic.volume = 0.5;
     this.bgMusic.loop = true;
   }

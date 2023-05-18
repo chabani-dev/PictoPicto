@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Pictogram;
 use App\Entity\SubCategory;
 use App\Entity\Therapist;
 use App\Form\SearchType;
@@ -12,7 +11,7 @@ use App\Form\CreatePictogramType;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Repository\PictogramRepository;
+
 use App\Repository\SubCategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -193,13 +192,13 @@ Class SubCategoryController extends AbstractController
      * @param Pictogram $pictogram
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deletePicto(Pictogram $pictogram, Request $request) {
-        if ($this->isCsrfTokenValid('delete1' . $pictogram->getId(), $request->get('_token'))) {
-            $this->em->remove($pictogram);
-            $this->em->flush();
-            $this->addFlash('success', 'Pictogramme supprimé avec succès');
-        }
-        return $this->redirectToRoute('category');
-    }
+    // public function deletePicto(Pictogram $pictogram, Request $request) {
+    //     if ($this->isCsrfTokenValid('delete1' . $pictogram->getId(), $request->get('_token'))) {
+    //         $this->em->remove($pictogram);
+    //         $this->em->flush();
+    //         $this->addFlash('success', 'Pictogramme supprimé avec succès');
+    //     }
+    //     return $this->redirectToRoute('category');
+    // }
 
 }

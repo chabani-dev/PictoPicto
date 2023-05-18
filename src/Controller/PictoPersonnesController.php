@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/picto/personnes")
+ * @Route("/personnes")
  */
 class PictoPersonnesController extends AbstractController
 {
@@ -38,14 +38,28 @@ class PictoPersonnesController extends AbstractController
      */
     public function index(PictoPersonnesRepository $pictoPersonnesRepository,SubCategoryRepository $subRepository): Response
     {
-        $category = $this->repository->findOneBy(['name' => 'Personnes']);
-        $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
 
-        return $this->render('picto_personnes/index.html.twig', [
-            'picto_personnes' => $pictoPersonnesRepository->findAll(),
-        'category' => $category,
-        'subcategories' => $subcategories,
-        ]);
+    $category = $this->repository->findBy(['name' => 'Objets']);
+if (!empty($category)) {
+    $category = $category[0];
+    $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+} else {
+    $category = null;
+    $subcategories = null;
+}
+return $this->render('picto_personnes/index.html.twig', [
+    'picto_objets' => $pictoPersonnesRepository->findAll(),
+    'category' => $category,
+    'subcategories' => $subcategories,
+    ]);
+        // $category = $this->repository->findOneBy(['name' => 'Personnes']);
+        // $subcategories = $subRepository->findBy(['category_id' => $category->getId()]);
+
+        // return $this->render('picto_personnes/index.html.twig', [
+        //     'picto_personnes' => $pictoPersonnesRepository->findAll(),
+        // 'category' => $category,
+        // 'subcategories' => $subcategories,
+        // ]);
     }
 
     /**

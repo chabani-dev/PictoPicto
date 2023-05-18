@@ -10,8 +10,8 @@
          <!-- btn création catégories et picotgrammes -->
         <div class="pictoactions">
                <a href="{{ path('app_picto_lieux_new') }}" class="btn btn-dark btn-sm">PictoLieux</a>
-              <a href="{{ path('newSubCategoryLieux') }}" class="btn btn-dark btn-sm ">Créer une sous-catégorie</a>
-            
+              {# <a href="{{ path('newSubCategoryLieux') }}" class="btn btn-dark btn-sm ">Créer une sous-catégorie</a>
+             #}
         </div>
 
 </div>
@@ -31,23 +31,26 @@
 </div>
 
  <div id="accordion">
+
     <div class="p-3 accordion-item d-flex">
-            <img class="pictoList" src="{{ asset('images/categories/' ~ picto_lieuxes[0].pictograms.filename) }}" alt=""> 
-            <span class="my-auto ms-2 ">{{ picto_lieuxes[0].pictograms.name }}</span> 
+            {# <img class="pictoList" src="{{ asset('images/categories/'~picto_lieuxes[0].pictograms.filename) }}" alt=""> 
+            <span class="my-auto ms-2 ">{{ picto_lieuxes[0].pictograms.name }}</span>  #}
             
+         
 </div>
      <div class="picto">
-        {% for picto_lieu in picto_lieuxes %}
+        {% for picto_lieux in picto_lieuxes %}
+         {% if category is null %}
                 <div class="ms-md-3">
                      <img class="pictoList"src="{{ asset('images/pictograms/') }}{{ picto_lieu.filename }}" alt=""> 
                     <figcaption class="picText">{{ picto_lieu.name }} </figcaption>
                             
                 </div>
-                   
+                          {% endif %} 
         {% endfor %}
     </div> 
 
-       {% for subcategory in subcategories %}
+       {# {% for subcategory in subcategories %}
    
       
  <div class="accordion-item mb-3">       
@@ -58,9 +61,9 @@
                         </button>
                         </h2>
                         <div id="collapse{{subcategory.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{subcategory.id}}" data-bs-parent="#accordionExample">  
-                    {% endfor %} 
+                    {% endfor %}  #}
 
-<div class="picto">
+{# <div class="picto">
             {% for picto_lieux in picto_lieuxes %}
                     <div class="ms-md-3">
                         <img class="pictoList"src="{{ asset('images/pictograms/') }}{{  picto_lieux.filename }}" alt=""> 
@@ -73,7 +76,7 @@
 
 
 </div>
-</div>
+</div> #}
      
 {% endblock %}
      
